@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
+
+body, html, ul {
+    height: 100%;
+}
+
+header {
+    background-color:#00a3e0;
+    height:50px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+ * Links
+ */
+a {
+    cursor:default;
+}
+
+/* unvisited link */
+a:link {
+    color: currentColor;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: currentColor;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: currentColor;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: currentColor;
+    text-decoration: none;
+}
+
+/* Header contents */
+.header-left {
+    float:left;
+}
+
+.header-left img {
+    margin-top: 12px;
+    margin-left: 19px;
+}
+
+.header-right {
+    float:right;
+    color:white;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.ico-f-dropdown, .ico-f-radio, .ico-f-sorting {
+    font-size: 8px;
+}
+
+/* Main Container */
+.menu-container {
+    height: 899px;
+    font-family: 'Roboto', sans-serif;
+    color:#527b99;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+/*
+ * Classes for side menus
+ */
+.side-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 13.7%;
+    background:#edf9fd;
+    border:1px solid #d4eaf1;
+
+    cursor:pointer;
+}
+
+.side-container li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    width: 100%;
+    height: 45px;
+
+    font-size: 16px;
+
+}
+
+.side-container li .item-text {
+    flex-basis: 61%;
+}
+
+/* 
+ * Arrow and hover props 
+ */
+.side-container li .arrow {
+    display:none;
+}  
+
+.side-container li:hover > .arrow {
+    display:block;
+}
+
+.side-container li:hover {
+    background: #004660;
+    color:white;
+}
+
+.side-container .ico-f {
+    margin-right: 15px;
+    margin-left: 20px;
+}
+
+/* 
+ * Child classes 
+ */
+.establishment {
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height:60px;
+    font-size: 13px;
+    background: #f8fdfe;
+    border:1px solid #d4eaf1;
+    
+    padding-left: 22px;
+    border-right: none;
+    border-top:none;
+}
+
+#establishment-place {
+    font-size: 16px;
+    color:#00a1e0;
+    margin-top: 5px; 
+}
+
+.dashboard {
+    margin-top:10px;
+}
+
+.employees {
+    margin-bottom: 10px;
+}
+
+.quick-books {
+    flex-basis: 10%;
+    box-sizing: border-box;
+    border:1px solid #d4eaf1;
+    border-right: none;
+}
+
+.settings {
+    margin-top: 17px;
+}
+
+.help {
+    display: flex;
+    height:3%;
+    color:#00a1e0;
+    font-size: 11px;
+    border:1px solid #d4eaf1;
+    padding-left: 22px;
+    align-items: center;
+    border-right: none;
+
+}
+
+#datetime {
+    color:#527b99;
+    margin-right: 15px;
+}
+
+/* 
+ * Main container props 
+ */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+
+.main-container .ico-f {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.main-1 {
+    display: flex;
+    align-items: center;
+
+    height:60px;
+
+    border:1px solid #d4eaf1;
+    border-left: none;
+}
+
+.main-1-controls-employees {
+    flex:10;
+
+    margin-left: 20px;
+
+    font-size: 20px;
+    color:#053b66;
+}
+
+.main-1-controls-employee-list {
+    flex:0.7;
+
+    font-size: 14px;
+    color:#053b66;
+
+    padding-bottom: 17px;
+    padding-top: 22px;
+
+    box-sizing: border-box;
+    border-bottom: 3px solid currentColor;
+    white-space: nowrap;
+}
+
+.main-1-controls-roles {
+    flex:0.4;
+
+    margin-left: 35px;
+
+    font-size: 14px;
+    color:#00a1e0;
+}
+
+.ico-f-magnifier {
+    font-size: 17px;
+    color:#00a1e0;
+    font-weight: bolder;
+}
+
+.main-2 {
+    flex:10;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    font-size: 13px;
+    color:#00a1e0;
+}
+
+#main-caption {
+    flex-basis: 15%;
+
+    text-align: center;
+    box-sizing: border-box;
+    margin-top:50px;
+
+    font-size: 45px;
+    color:#9bb1c2;
+    font-weight: lighter;  
+}
+
+.main-2-controls {
+    flex-basis: 9%;
+    width:270px;
+
+    display: flex;
+    /*flex-flow: row wrap;*/
+    justify-content: space-between;
+
+    color:#00a1e0;
+}
+
+.upload {
+    height: 40px;
+    border-radius: 7px;
+    background-color:#f2fafd;
+    border: 1px solid #00a1e0;
+    color:#00a1e0;
+    font-size: 16px;
+    /*flex-basis: 40%;*/
+    cursor:pointer;
+    white-space: nowrap;
+}
+
+.add {
+    height: 40px;
+    border-radius: 5px;
+    background-color:#00a1e0;
+    border: 1px solid #00a1e0;
+    color:white;
+    font-size: 16px;
+    /*flex-basis: 39%;*/
+    cursor:pointer;
+    white-space: nowrap;
+}
+
+/* 
+ * Employee list 
+ */
+#employee-list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#table-caption {
+    margin: 25px;
+}
+
+#emp-list-controls {
+    margin-right: 25px;
+}
+
+table {
+    width:97%;
+    margin-left: 25px;
+}
+
+th, td {
+    height: 40px;
+    text-align: left;
+    border:1px solid #d4eaf1;
+    border-left: none;
+    border-right:none;
+    padding-top: 10px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+th {
+    font-size: 10px;
+    padding-top: 14px;
+    cursor:pointer;
+}
+
+td {
+    border-top:none;
+}
+
+.select-item, .select-all {
+    flex-basis: 6%;
+    box-sizing: border-box;
+    cursor:pointer;
+}
+
+.table-arrow {
+    width:1000px;
+}
+
+.ico-f-angle-right {
+    float: right;
+}
+
+.ico-f-radio {
+    font-size: 14px;
+}
+.ico-f-ok {
+    font-size: 16px;
+}
+
+/* 
+ * Employee Details 
+ */
+#form-caption {
+    margin: 13px 0px 18px 18px;
+}
+
+#employee-details {
+    display: flex;
+    flex-flow: row wrap;
+    width:1600px;
+    margin-left: 20px;
+}
+
+.field-name {
+    font-size: 9px;
+    font-weight: bolder;
+    margin-bottom: 9px;
+}
+
+.input-box {
+    height: 30px;
+    width:97%;
+    border-radius: 5px;
+    border:2px solid #d4eaf1;
+    font-size: 16px;
+
+    margin-bottom: 9px;
+    padding-left:10px;
+
+}
+
+#wage {
+    text-align: right;
+    padding-right:10px;
+}
+
+.big-field {
+    flex-basis: 48%;
+    margin-right: 20px;
+}
+
+.small-field {
+    flex-basis: 22.4%;
+    margin-right: 30px;
+}
+
+#filler {
+    height: 525px;
+    border:1px solid #d4eaf1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#btn-employee-add {
+    float:right;
+    margin-right: 40px;
+    margin-top:34em;
+
+}
+
+#btn-employee-cancel {
+    float: left;
+    margin-left: 40px;
+    margin-top:34em;
+}
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+/*table,*/ caption, tbody, tfoot, thead, /*tr, th, td,*/
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

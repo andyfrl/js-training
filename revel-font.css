@@ -1,0 +1,804 @@
+@font-face {
+  font-family: "revel";
+  src: url('./revel.eot');
+  src: url('./revel.eot?#iefix') format('eot'),
+    url('./revel.woff') format('woff'),
+    url('./revel.ttf') format('truetype'),
+    url('./revel.svg#revel') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.ico-f {
+  font-family: "revel" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-f:before {
+  display: inline-block;
+  font-family: "revel";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  //overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-f-lg {
+  font-size: 1.3333333333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.ico-f-0_5x { font-size: .5em; }
+.ico-f-0_6x { font-size: .6em; }
+.ico-f-2x { font-size: 2em; }
+.ico-f-3x { font-size: 3em; }
+.ico-f-4x { font-size: 4em; }
+.ico-f-5x { font-size: 5em; }
+.ico-f-fw {
+  width: 1.2857142857142858em;
+  text-align: center;
+}
+
+
+    
+        .ico-f-empl-export:before { content: "\EA01" }
+    
+
+    
+        .ico-f-book:before { content: "\EA02" }
+    
+
+    
+        .ico-f-box:before { content: "\EA03" }
+    
+
+    
+        .ico-f-break:before { content: "\EA04" }
+    
+
+    
+        .ico-f-btn-bg:before { content: "\EA05" }
+    
+
+    
+        .ico-f-inv-transfer:before { content: "\EA06" }
+    
+
+    
+        .ico-f-chain:before { content: "\EA07" }
+    
+
+    
+        .ico-f-chart:before { content: "\EA08" }
+    
+
+    
+        .ico-f-checkbox:before { content: "\EA09" }
+    
+
+    
+        .ico-f-checked:before { content: "\EA0A" }
+    
+
+    
+        .ico-f-copy:after {
+            content: "\EA0B";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ico-f-copy {
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+    
+
+    
+        .ico-f-copy:before {
+            content: "\EA0C";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ico-f-copy {
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+    
+
+    
+        .ico-f-copy-simple:before { content: "\EA0D" }
+    
+
+    
+        .ico-f-crm:before { content: "\EA0E" }
+    
+
+    
+        .ico-f-cross:before { content: "\EA0F" }
+    
+
+    
+        .ico-f-deny:before { content: "\EA10" }
+    
+
+    
+        .ico-f-download:before { content: "\EA11" }
+    
+
+    
+        .ico-f-empl-perms:before { content: "\EA12" }
+    
+
+    
+        .ico-f-empl-roles:before { content: "\EA13" }
+    
+
+    
+        .ico-f-empl-add:before { content: "\EA14" }
+    
+
+    
+        .ico-f-employees:before { content: "\EA15" }
+    
+
+    
+        .ico-f-employees-many:before { content: "\EA16" }
+    
+
+    
+        .ico-f-sort2:before { content: "\EA17" }
+    
+
+    
+        .ico-f-estab:before { content: "\EA18" }
+    
+
+    
+        .ico-f-establishment:before { content: "\EA19" }
+    
+
+    
+        .ico-f-eye:before { content: "\EA1A" }
+    
+
+    
+        .ico-f-folder-c:before { content: "\EA1B" }
+    
+
+    
+        .ico-f-to-left:before { content: "\EA1C" }
+    
+
+    
+        .ico-f-folder-o:before { content: "\EA1D" }
+    
+
+    
+        .ico-f-adm-perms:before { content: "\EA1E" }
+    
+
+    
+        .ico-f-info:before { content: "\EA1F" }
+    
+
+    
+        .ico-f-inventory:before { content: "\EA20" }
+    
+
+    
+        .ico-f-lock-all:before { content: "\EA21" }
+    
+
+    
+        .ico-f-lock:before { content: "\EA22" }
+    
+
+    
+        .ico-f-minus:before { content: "\EA23" }
+    
+
+    
+        .ico-f-modifier:after {
+            content: "\EA24";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ico-f-modifier {
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+    
+
+    
+        .ico-f-modifier:before {
+            content: "\EA25";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ico-f-modifier {
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+    
+
+    
+        .ico-f-modifier-simple:before { content: "\EA26" }
+    
+
+    
+        .ico-f-ok:before { content: "\EA27" }
+    
+
+    
+        .ico-f-overview:before { content: "\EA28" }
+    
+
+    
+        .ico-f-partial-select:before { content: "\EA29" }
+    
+
+    
+        .ico-f-pdf:before { content: "\EA2A" }
+    
+
+    
+        .ico-f-pencil:before { content: "\EA2B" }
+    
+
+    
+        .ico-f-pencil2:before { content: "\EA2C" }
+    
+
+    
+        .ico-f-percent:before { content: "\EA2D" }
+    
+
+    
+        .ico-f-plus:before { content: "\EA2E" }
+    
+
+    
+        .ico-f-products:before { content: "\EA2F" }
+    
+
+    
+        .ico-f-reload:before { content: "\EA30" }
+    
+
+    
+        .ico-f-reports:before { content: "\EA31" }
+    
+
+    
+        .ico-f-reservations:before { content: "\EA32" }
+    
+
+    
+        .ico-f-revert:before { content: "\EA33" }
+    
+
+    
+        .ico-f-save:before { content: "\EA34" }
+    
+
+    
+        .ico-f-scales:before { content: "\EA35" }
+    
+
+    
+        .ico-f-schedule-calendar:before { content: "\EA36" }
+    
+
+    
+        .ico-f-schedule-dollar:before { content: "\EA37" }
+    
+
+    
+        .ico-f-schedule-ok:before { content: "\EA38" }
+    
+
+    
+        .ico-f-schedule-settings:before { content: "\EA39" }
+    
+
+    
+        .ico-f-schedules:before { content: "\EA3A" }
+    
+
+    
+        .ico-f-settings:before { content: "\EA3B" }
+    
+
+    
+        .ico-f-sort:before { content: "\EA3C" }
+    
+
+    
+        .ico-f-t-corner:before { content: "\EA3D" }
+    
+
+    
+        .ico-f-t-item:before { content: "\EA3E" }
+    
+
+    
+        .ico-f-t-line:before { content: "\EA3F" }
+    
+
+    
+        .ico-f-tablet:before { content: "\EA40" }
+    
+
+    
+        .ico-f-to-right:before { content: "\EA41" }
+    
+
+    
+        .ico-f-trash:before { content: "\EA42" }
+    
+
+    
+        .ico-f-unlock-all:before { content: "\EA43" }
+    
+
+    
+        .ico-f-unlock:before { content: "\EA44" }
+    
+
+    
+        .ico-f-video:before { content: "\EA45" }
+    
+
+    
+        .ico-f-watch:before { content: "\EA46" }
+    
+
+    
+        .ico-f-to-left2:before { content: "\EA47" }
+    
+
+    
+        .ico-f-to-right2:before { content: "\EA48" }
+    
+
+    
+        .ico-f-magnifier:before { content: "\EA49" }
+    
+
+    
+        .ico-f-articles:before { content: "\EA4A" }
+    
+
+    
+        .ico-f-employee-single:before { content: "\EA4B" }
+    
+
+    
+        .ico-f-faq:before { content: "\EA4C" }
+    
+
+    
+        .ico-f-megaphone:before { content: "\EA4D" }
+    
+
+    
+        .ico-f-play:before { content: "\EA4E" }
+    
+
+    
+        .ico-f-star:before { content: "\EA4F" }
+    
+
+    
+        .ico-f-tools:before { content: "\EA50" }
+    
+
+    
+        .ico-f-arrow-r:before { content: "\EA51" }
+    
+
+    
+        .ico-f-computer:before { content: "\EA52" }
+    
+
+    
+        .ico-f-phone:before { content: "\EA53" }
+    
+
+    
+        .ico-f-email:before { content: "\EA54" }
+    
+
+    
+        .ico-f-checkmark:before { content: "\EA55" }
+    
+
+    
+        .ico-f-crossmark:before { content: "\EA56" }
+    
+
+    
+        .ico-f-schedule-shift:before { content: "\EA57" }
+    
+
+    
+        .ico-f-dots:before { content: "\EA58" }
+    
+
+    
+        .ico-f-schedule-time-rule:before { content: "\EA59" }
+    
+
+    
+        .ico-f-label:before { content: "\EA5A" }
+    
+
+    
+        .ico-f-schedule-payroll:before { content: "\EA5B" }
+    
+
+    
+        .ico-f-inv-products:before { content: "\EA5C" }
+    
+
+    
+        .ico-f-inv-address:before { content: "\EA5D" }
+    
+
+    
+        .ico-f-inv-ingredients:before { content: "\EA5E" }
+    
+
+    
+        .ico-f-schedule-worked:before { content: "\EA5F" }
+    
+
+    
+        .ico-f-inv-po:before { content: "\EA60" }
+    
+
+    
+        .ico-f-inv-reorder:before { content: "\EA61" }
+    
+
+    
+        .ico-f-inv-rma:before { content: "\EA62" }
+    
+
+    
+        .ico-f-inv-vendors:before { content: "\EA63" }
+    
+
+    
+        .ico-f-at:before { content: "\EA64" }
+    
+
+    
+        .ico-f-inv-wetstock:before { content: "\EA65" }
+    
+
+    
+        .ico-f-duplicate:before { content: "\EA66" }
+    
+
+    
+        .ico-f-modifiers:before { content: "\EA67" }
+    
+
+    
+        .ico-f-rotate-l:before { content: "\EA68" }
+    
+
+    
+        .ico-f-rotate-r:before { content: "\EA69" }
+    
+
+    
+        .ico-f-list-view:before { content: "\EA6A" }
+    
+
+    
+        .ico-f-warning:before { content: "\EA6B" }
+    
+
+    
+        .ico-f-messaging-bell:before { content: "\EA6C" }
+    
+
+    
+        .ico-f-messaging-mail:before { content: "\EA6D" }
+    
+
+    
+        .ico-f-messaging-system:before { content: "\EA6E" }
+    
+
+    
+        .ico-f-messaging-announce:before { content: "\EA6F" }
+    
+
+    
+        .ico-f-messaging-drafts:before { content: "\EA70" }
+    
+
+    
+        .ico-f-messaging-preview:before { content: "\EA71" }
+    
+
+    
+        .ico-f-messaging-insert:before { content: "\EA72" }
+    
+
+    
+        .ico-f-v-dots:before { content: "\EA73" }
+    
+
+    
+        .ico-f-arrows-couple:before { content: "\EA74" }
+    
+
+    
+        .ico-f-dropdown:before { content: "\EA75" }
+    
+
+    
+        .ico-f-dropup:before { content: "\EA76" }
+    
+
+    
+        .ico-f-inv-physical-inventory:before { content: "\EA77" }
+    
+
+    
+        .ico-f-to-down:before { content: "\EA78" }
+    
+
+    
+        .ico-f-crossmark-light:before { content: "\EA79" }
+    
+
+    
+        .ico-f-print:before { content: "\EA7A" }
+    
+
+    
+        .ico-f-inv-preprecipes:before { content: "\EA7B" }
+    
+
+    
+        .ico-f-angle-down:before { content: "\EA7C" }
+    
+
+    
+        .ico-f-ellipsis-h:before { content: "\EA7D" }
+    
+
+    
+        .ico-f-sliders:before { content: "\EA7E" }
+    
+
+    
+        .ico-f-h-dots:before { content: "\EA7F" }
+    
+
+    
+        .ico-f-plus-round:before { content: "\EA80" }
+    
+
+    
+        .ico-f-radio-checked:before { content: "\EA81" }
+    
+
+    
+        .ico-f-radio:before { content: "\EA82" }
+    
+
+    
+        .ico-f-checked-filled:before { content: "\EA83" }
+    
+
+    
+        .ico-f-adjustings:before { content: "\EA84" }
+    
+
+    
+        .ico-f-angle-up:before { content: "\EA85" }
+    
+
+    
+        .ico-f-invoice-sent:before { content: "\EA86" }
+    
+
+    
+        .ico-f-charge:before { content: "\EA87" }
+    
+
+    
+        .ico-f-email2:before { content: "\EA88" }
+    
+
+    
+        .ico-f-export:before { content: "\EA89" }
+    
+
+    
+        .ico-f-angle-left:before { content: "\EA8A" }
+    
+
+    
+        .ico-f-angle-right:before { content: "\EA8B" }
+    
+
+    
+        .ico-f-sorting:after {
+            content: "\EA8C";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ico-f-sorting {
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+    
+
+    
+        .ico-f-sorting:before {
+            content: "\EA8D";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ico-f-sorting {
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+    
+
+    
+        .ico-f-question-circle:before { content: "\EA8E" }
+    
+
+    
+        .ico-f-file-pdf:before { content: "\EA8F" }
+    
+
+    
+        .ico-f-cog:before { content: "\EA90" }
+    
+
+    
+        .ico-f-receipts:before { content: "\EA91" }
+    
+
+    
+        .ico-f-taxes:before { content: "\EA92" }
+    
+
+    
+        .ico-f-minus-hollow:before { content: "\EA93" }
+    
+
+    
+        .ico-f-plus-hollow:before { content: "\EA94" }
+    
+
+    
+        .ico-f-draggable:before { content: "\EA95" }
+    
+
+    
+        .ico-f-plus-circle:before { content: "\EA96" }
+    
+
+    
+        .ico-f-shopping-cart:before { content: "\EA97" }
+    
+
+    
+        .ico-f-connection:before { content: "\EA98" }
+    
+
+    
+        .ico-f-employees-wz:before { content: "\EA99" }
+    
+
+    
+        .ico-f-copy2:before { content: "\EA9A" }
+    
+
+    
+        .ico-f-move:before { content: "\EA9B" }
+    
+
+    
+        .ico-f-need-help:before { content: "\EA9C" }
+    
+
+    
+        .ico-f-old-style-need-help:before { content: "\EA9D" }
+    
+
+    
+        .ico-f-multi-list:before { content: "\EA9E" }
+    
+
+    
+        .ico-f-enterprise:before { content: "\EA9F" }
+    
+
+    
+        .ico-f-cloud-upload:before { content: "\EAA0" }
+    
+
+    
+        .ico-f-fa-spinner:before { content: "\EAA1" }
+    
+
+    
+        .ico-f-picture:before { content: "\EAA2" }
+    
+
+    
+        .ico-f-coss-hollow:before { content: "\EAA3" }
+    
+
+    
+        .ico-f-trash-thin:before { content: "\EAA4" }
+    
+
+    
+        .ico-f-internal:before { content: "\EAA5" }
+    
+
+    
+        .ico-f-lock-small:before { content: "\EAA6" }
+    
+
+    
+        .ico-f-cross-thin:before { content: "\EAA7" }
+    
+
+    
+        .ico-f-dragndrop:before { content: "\EAA8" }
+    
+
+    
+        .ico-f-pencil3:before { content: "\EAA9" }
+    
+
+    
+        .ico-f-key:before { content: "\EAAA" }
+    
+
+    
+        .ico-f-exclamation-circle:before { content: "\EAAB" }
+    

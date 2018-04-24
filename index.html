@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Employee List</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+    <link rel="stylesheet" media="all" href="revel-font.css">
+</head>
+
+<body>
+    <header>  
+        <a href="#">
+            <span class="header-left"><img src="logo.svg" alt="Revel logo" height="25" width="60"></span>
+            <span class="header-right">Welcome, Samantha H<span class="font-icon ico-f ico-f-dropdown"></span></span>
+        </a>
+    </header>
+
+    <div class="menu-container">
+        <div class="side-container">
+            <div class="establishment">
+                <span id="establishment-caption">Establishment:</span>
+                <span id="establishment-place">Annette's place</span>
+            </div>
+            <ul>
+                <li class="dashboard">
+                    <span class="font-icon ico-f ico-f-overview"></span><span class="item-text">Dashboard</span>
+                    <div class="arrow">
+                        <span class="font-icon ico-f ico-f-angle-right"></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="font-icon ico-f ico-f-shopping-cart"></span><span class="item-text">Products</span>
+                    <div class="arrow">
+                        <span class="font-icon ico-f ico-f-angle-right"></span>
+                    </div>
+                </li>
+                <li class="employees">
+                    <span class="font-icon ico-f ico-f-employees-many"></span><span class="item-text">Employees</span>
+                    <div class="arrow">
+                        <span class="font-icon ico-f ico-f-angle-right"></span>
+                    </div>
+                </li>
+                <li class="quick-books">
+                    <span class="font-icon ico-f ico-f-at"></span><span class="item-text">QuickBooks</span>
+                    <div class="arrow">
+                        <span class="font-icon ico-f ico-f-angle-right"></span>
+                    </div>
+                </li>
+                <li class="settings">
+                    <span class="font-icon ico-f ico-f-settings"></span><span class="item-text">Settings</span>
+                    <div class="arrow">
+                        <span class="font-icon ico-f ico-f-angle-right"></span>
+                    </div>
+                </li>
+            </ul>
+            <span class="help">
+                <span id="datetime"></span>Need Help?
+            </span>
+        </div>
+        <div class="main-container">
+            <div class="main-1">
+                <div class="main-1-controls-employees"><h4>Employees</h4></div>
+                <span class="main-1-controls-employee-list"><h4>Employee List</h4></span>
+                <span class="main-1-controls-roles"><h4>Roles</h4></span>
+                <span class="font-icon ico-f ico-f-magnifier"></span>
+                
+            </div>
+            <div class="main-2">
+                <div id="main-caption">
+                    Let's add<br>some emlpoyees!
+                </div>
+                <div class="main-2-controls">
+                    <button class="upload">Upload Template</button>
+                    <button class="add">Add Employee</button>
+
+                </div>
+                Download Employee Template
+                
+            </div>
+
+            <!-- Employee List table -->
+            <div id="employee-list">
+                <span id="table-caption">Employee List</span>
+                <span id="emp-list-controls">
+                    <button class="upload del-employee">- Del</button>
+                    <button class="add add-employee">+ Add</button>
+                </span>
+                <table id="emp-table">
+                    <tr id="nav-bar">
+                        <th class="select-all"><span class="font-icon ico-f ico-f-radio"></span><div class="font-icon ico-f ico-f-dropdown"></div></th>
+                        <th id="ln">LAST NAME<span class="font-icon ico-f ico-f-sorting"></span></th>
+                        <th id="fn">FIRST NAME<span class="font-icon ico-f ico-f-sorting"></span></th>
+                        <th id="rl">ROLE<span class="font-icon ico-f ico-f-sorting"></span></th>
+                        <th class="table-arrow"></th>
+                    </tr>
+                    <tr>
+                        <td class="select-item"><span class="font-icon ico-f"></span></td>
+                        <td class="l-name">Augustus</td><td class="f-name">Stephanie</td><td class="role">Owner</td>
+                        <td class="table-arrow">
+                            <span class="font-icon ico-f ico-f-angle-right"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-item"><span class="font-icon ico-f"></span></td>
+                        <td class="l-name">Blaine</td><td class="f-name">Jacob</td><td class="role">Owner</td>
+                        <td class="table-arrow">
+                            <span class="font-icon ico-f ico-f-angle-right"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-item"><span class="font-icon ico-f"></span></td>
+                        <td class="l-name">Harrold</td><td class="f-name">Samantha</td><td class="role">Owner</td>
+                        <td class="table-arrow">
+                            <span class="font-icon ico-f ico-f-angle-right"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-item"><span class="font-icon ico-f"></span></td>
+                        <td class="l-name">Lanell</td><td class="f-name">Matthew</td><td class="role">Owner</td>
+                        <td class="table-arrow">
+                            <span class="font-icon ico-f ico-f-angle-right"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-item"><span class="font-icon ico-f"></span></td>
+                        <td class="l-name">Smith</td><td class="f-name">Patrick</td><td class="role">Owner</td>
+                        <td class="table-arrow">
+                            <span class="font-icon ico-f ico-f-angle-right"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-item"><span class="font-icon ico-f"></span></td>
+                        <td class="l-name">Zophia</td><td class="f-name">Stephanie</td><td class="role">Owner</td>
+                        <td class="table-arrow">
+                            <span class="font-icon ico-f ico-f-angle-right"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Employee Details -->
+            <form id="form-employee-details" action="https://jsonplaceholder.typicode.com/users">
+
+                <div id="form-caption">Employee Information</div>
+                <div id="employee-details">
+                    
+                    <span class="big-field">
+                        <div class="field-name">FIRST NAME*</div>
+                        <input type="text" id="first-name" class="input-box">
+                    </span>
+                    <span class="big-field">
+                        <div class="field-name">LAST NAME*</div>
+                        <input type="text" id="last-name" class="input-box">
+                    </span> 
+
+                    <span class="big-field">
+                        <div class="field-name">ROLE*</div>
+                        <input type="text" id="role" class="input-box">
+                    </span>
+
+                    <span class="small-field">
+                        <div class="field-name">POS LOGIN PIN*</div>
+                        <input type="password" id="pos-login-pin" class="input-box">
+                    </span>
+                    <span class="small-field">
+                        <div class="field-name">WAGE*</div>
+                        <input type="text" id="wage" class="input-box">
+                    </span>
+
+                    <span class="big-field">
+                        <div class="field-name">EMAIL ADDRESS*</div>
+                        <input type="email" id="email-address" class="input-box">
+                    </span>
+                    <span class="big-field">
+                        <div class="field-name">PHONE NUMBER*</div>
+                        <input type="tel" id="phone-number" class="input-box">
+                    </span> 
+     
+                
+                </div>
+                <div id="filler">
+                    <input type="button" value="Cancel" id="btn-employee-cancel" class="upload">
+                    <input type="submit" value="Submit" id="btn-employee-add" class="add">
+                </div>
+
+            </form>
+
+        </div>
+        
+    </div>
+
+    
+<script>
+    document.getElementById("datetime").innerHTML = formatDate(new Date());
+
+    function formatDate(date) {
+        var year = date.getFullYear(),
+            month = date.getMonth() + 1,
+            day = date.getDate(),
+            hour = date.getHours(),
+            minute = date.getMinutes(),
+            second = date.getSeconds(),
+            yearFormatted = year.toString().substr(-2),
+            monthFormatted = month < 10 ? "0" + month : month,
+            dayFormatted = day < 10 ? "0" + day : day,
+            minuteFormatted = minute < 10 ? "0" + minute : minute,
+            secondFormatted = second < 10 ? "0" + second : second,
+            amPm = hour < 12 ? "AM" : "PM";
+
+        return monthFormatted + "/" + dayFormatted + "/" + yearFormatted + ", " + hour + ":" +
+                minuteFormatted + ":" + second + " " + amPm;
+    }
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#employee-list').hide();
+    $('#form-employee-details').hide();
+
+    $('#employee-list').on('click', '.select-item', function() {
+
+            icon = $(this).find('span');
+            if (icon.hasClass("ico-f-radio")) {
+                icon.addClass("ico-f-ok").removeClass("ico-f-radio");
+            } else if (icon.hasClass("ico-f-ok")) {
+                icon.addClass("ico-f-radio").removeClass("ico-f-ok");
+            } else if (!icon.hasClass("ico-f-radio") && !icon.hasClass("ico-f-ok")) {
+                
+                icon.addClass("ico-f-ok");
+                $('.select-item').children('span').each(function() {
+                    if (!$(this).hasClass('ico-f-radio') && !$(this).hasClass('ico-f-ok')) {
+                        $(this).addClass('ico-f-radio');
+                    }
+                });
+                
+            }
+    });
+
+    /* Select all employee button operations */
+    $('.select-all').click(function() {
+        var icon = $(this).find('span');
+        if (icon.hasClass("ico-f-radio")) {
+            icon.addClass("ico-f-ok").removeClass('ico-f-radio');
+            
+            $('.select-item').children('span').each(function() {
+                $(this).addClass('ico-f-ok').removeClass('ico-f-radio');
+            });
+
+        } else if (icon.hasClass("ico-f-ok")) {
+            icon.addClass("ico-f-radio").removeClass("ico-f-ok");
+
+            $('.select-item').children('span').each(function() {
+                $(this).addClass('ico-f-radio').removeClass('ico-f-ok');
+            });
+        }
+
+        
+    });
+
+    /* Sort contents of the derived class and append 
+     * the resulting set of items to the parent class
+     */
+    function SortAppendElemContents(element_class, child_class, parent_class) {
+        var items = $(child_class).get();
+
+        items.sort(function(a, b) {
+            var cmpA = $(a).text().toUpperCase();
+            var cmpB = $(b).text().toUpperCase();
+            return (cmpA < cmpB) ? -1 : (cmpA > cmpB) ? 1 : 0;
+        });
+        $.each(items, function() {
+            $(element_class).append($(this).parent(parent_class));
+        });
+    }
+
+    /* Sort by last name */
+    $('#employee-list').on('click', '#ln', function() {
+        SortAppendElemContents('#emp-table > tbody', '.l-name', 'tr');
+    });
+
+    /* Sort by first name */
+    $('#employee-list').on('click', '#fn', function() {
+        SortAppendElemContents('#emp-table > tbody', '.f-name', 'tr');
+    });
+
+    /* Sort by role */
+    $('#employee-list').on('click', '#rl', function() {
+        SortAppendElemContents('#emp-table > tbody', '.role', 'tr');
+    });
+
+    /* Add employee by filling detailed informantion*/
+    $('.add-employee').click(function() {
+        $('#employee-list').hide();
+        $('#form-employee-details').show();
+        $('.main-1-controls-employees > h4').replaceWith('<h4>Employee Details</h4>');
+    });
+
+    /* Submit employee details form */
+    $('#form-employee-details').submit(function(event) {
+        event.preventDefault();
+
+        var firstName = $('#first-name').val(),
+            lastName = $('#last-name').val(),
+            role = $('#role').val(),
+            url = $(this).attr('action');
+
+        // $.post(url, {firstName:firstName, lastName:lastName}).
+        //     done(function(data) {
+        //         console.log('User Saved');
+        //         console.log(data);
+        // });
+
+        $('#emp-table > tbody:last-child').append(
+        '<tr>\
+            <td class="select-item"><span class="font-icon ico-f"></span></td>\
+            <td class="l-name">'+lastName+'</td><td class="f-name">'+firstName+'</td><td class="role">'+role+'</td>\
+            <td class="table-arrow">\
+                <span class="font-icon ico-f ico-f-angle-right"></span>\
+            </td>\
+        </tr>');
+
+    });
+
+    /* Delete employee */
+    $('.del-employee').click(function() {
+        $('.select-item').each(function() {
+            if ($(this).children('span').hasClass('ico-f-ok')) {
+                $(this).parent('tr').detach();
+            }
+        });
+    });
+    
+    /* Click on side menu employees */
+    $('li.employees').click(function() {
+        $('.main-2').hide();
+        $('#form-employee-details').hide();
+        $('.main-1-controls-employees > h4').replaceWith('<h4>Employees</h4>');
+        $('#employee-list').show();
+
+        // $('#employee-list').load('tesxt.html', function(
+        //     responseTxt, statusTxt, xhr) {
+        //     if (statusTxt == "success") {
+        //         alert('It went fine');
+        //     } else if (statusTxt == "error") {
+        //         alert("Error: "+xhr.statusText);
+        //     }
+        // });
+        // $.get('test.html', function(data) {
+        //     $('#employee-list').html(data);
+        // });
+
+        $.getJSON('users.json', function(data) {
+            $.each(data, function(index, user) {
+                $('#emp-table > tbody:last-child').append(
+                '<tr>\
+                    <td class="select-item"><span class="font-icon ico-f"></span></td>\
+                    <td class="l-name">'+user.lastName+'</td>\
+                    <td class="f-name">'+user.firstName+'</td><td class="role">'+user.role+'</td>\
+                    <td class="table-arrow">\
+                        <span class="font-icon ico-f ico-f-angle-right"></span>\
+                    </td>\
+                </tr>');
+            });
+        });
+
+        // $.ajax({
+        //     method:'GET',
+        //     url: 'https://jsonplaceholder.typicode.com/users',
+        //     dataType: 'json'
+        // }).done(function(data) {
+        //     console.log(data);
+        //     $.map(data, function(user, i) {
+        //         $('#emp-table > tbody:last-child').append(
+        //         '<tr>\
+        //             <td class="select-item"><span class="font-icon ico-f"></span></td>\
+        //             <td class="l-name">'+user.name.substr(user.name.indexOf(' ') + 1)+'</td>\
+        //             <td class="f-name">'+user.name.substr(0, user.name.indexOf(' '))+'</td>\
+        //             <td class="role">'+user.company.bs+'</td>\
+        //             <td class="table-arrow">\
+        //                 <span class="font-icon ico-f ico-f-angle-right"></span>\
+        //             </td>\
+        //         </tr>');
+
+        //     });
+        // });
+
+    }); /* employees side menu */
+
+});
+</script>
+</body>
+</html>

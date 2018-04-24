@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="500"
+   height="500"
+   viewBox="0 0 500 500"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="exclamation-circle.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>exclamation-circle</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1035"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="1.1568627"
+     inkscape:cx="302.43968"
+     inkscape:cy="157.88476"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">exclamation-circle</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <defs
+     id="defs6" />
+  <g
+     id="Rev-MC"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(9.8213137,0,0,9.8213137,-1.3629992e-8,0.00219327)">
+    <g
+       id="Font-Awesome-Replacements"
+       transform="translate(-1410,-1965)"
+       style="fill:#000000;fill-rule:nonzero">
+      <g
+         id="exclamation-circle"
+         transform="translate(1410,1965)">
+        <path
+           d="M 0.00385541,25.018944 C 0.24528662,10.940303 11.684635,-0.229618 26.005369,0.00358606 39.811279,0.2285805 51.083105,11.719292 50.907666,25.791145 50.733668,39.763671 39.26147,51.092525 25.325529,50.907222 11.146461,50.909084 -0.24033736,39.284241 0.00385541,25.018944 Z M 46.787278,25.739568 C 46.934219,13.95346 37.485648,4.3214085 25.938403,4.1332234 13.898448,3.9371604 4.3264181,13.283743 4.1239579,25.089861 3.9191912,37.051958 13.457577,46.785462 25.337609,46.777034 37.022286,46.939095 46.641521,37.444203 46.787278,25.739568 Z M 25.383027,10.786207 c 1.614221,0 2.924312,1.311002 2.924312,2.926345 l -0.731078,13.168551 c 0,1.211507 -0.982568,2.194759 -2.193234,2.194759 -1.210665,0 -2.193233,-0.983252 -2.193233,-2.194759 L 22.458716,13.712552 c 0,-1.615343 1.310091,-2.926345 2.924311,-2.926345 z m 0.05849,22.041379 c 2.033917,0 3.684633,1.654511 3.684633,3.693104 0,2.038593 -1.650716,3.693103 -3.684633,3.693103 -2.033918,0 -3.684633,-1.65451 -3.684633,-3.693103 0,-2.038593 1.650715,-3.693104 3.684633,-3.693104 z"
+           id="Combined-Shape"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

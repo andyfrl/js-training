@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-17.3386,-17.3519,34.6772,34.7037)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(14.287,0,0,14.287,249.733,252.019)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M397.318,480.326 L21.4254,104.433 C2.85242,85.8609 -3.43391,61.5718 7.13837,50.9996 L48.7142,9.42552 C59.5724,-1.43279 83.5746,4.85269 102.148,23.7126 L478.04,399.604 C496.613,418.178 502.899,442.465 492.327,453.037 L450.894,494.613 C440.037,505.471 415.891,499.184 397.318,480.326 Z" style="stroke:none;fill-rule:nonzero;fill:#000000;fill-opacity:1;"/>
+        </g>
+        <g id="Shape2">
+            <desc shapeID="2" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-17.5009,-17.4947,35.0019,34.9894)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(14.287,0,0,14.287,250.037,249.947)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath2" d="M480.326,100.72 L100.719,480.326 C82.0034,499.043 57.8583,505.471 46.857,494.613 L5.28117,453.037 C-5.57625,442.179 0.852234,418.035 19.5682,399.175 L399.461,19.5688 C418.177,0.851959 442.322,-5.57652 453.324,5.28178 L494.899,46.8576 C505.471,57.7159 499.471,82.0032 480.326,100.72 Z" style="stroke:none;fill-rule:nonzero;fill:#000000;fill-opacity:1;"/>
+        </g>
+    </g>
+</svg>

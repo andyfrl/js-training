@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-250.5,-228.5,501,457)" text="" font-familyName="Helvetica" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1,0,0,1,250.5,250)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M0,229.5 L292,229.5 L292,188 L417,188 L417,229.5 C461,229.5 500,229.5 500,229.5 L500,271.5 C500,271.5 461,271.5 417,271.5 C417,292 417,313 417,313 L292,313 L292,271.5 L0,271.5 L0,229.5 M0,63 L83.5,63 L83.5,21.5 L208,21.5 L208,63 C208,63 501,63 501,63 L501,105 C501,105 208,105 208,105 L208,146 L83.5,146 L83.5,105 L0,105 L0,63 M0,396.5 L125.5,396.5 L125.5,354 L250,354 L250,396.5 C359,396.5 500.5,396.5 500.5,396.5 L500.5,439 C500.5,439 359,439 250,439 C250,459 250,478.5 250,478.5 L125.5,478.5 C125.5,478.5 125.5,459 125.5,439 L0,439 L0,396.5 Z" style="stroke:none;fill-rule:evenodd;fill:#000000;fill-opacity:1;"/>
+        </g>
+    </g>
+</svg>

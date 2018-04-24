@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-243.595,-226.333,487.189,452.665)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1.02386,0,0,1.02386,250.089,268.923)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M494.942,447.659 C501.177,458.05 501.177,471.56 493.903,482.99 C487.668,493.382 476.237,500.656 463.767,500.656 L35.6328,500.656 C23.1628,500.656 11.732,494.421 5.49709,482.99 C-0.7379,472.599 -0.7379,459.09 4.45793,447.659 L218.525,55.8951 C224.76,44.4643 236.191,37.1902 249.7,37.1902 C263.209,37.1902 274.64,44.4643 280.875,55.8951 L494.942,447.659 M290.227,187.869 C290.227,185.79 289.188,183.712 287.11,182.673 C285.031,181.634 282.953,179.555 280.875,179.555 L219.564,179.555 C217.486,179.555 214.368,181.634 213.329,182.673 C211.251,183.712 210.212,186.829 210.212,188.908 L215.408,315.685 C215.408,318.803 219.564,321.92 224.76,321.92 L276.718,321.92 C281.914,321.92 286.071,318.803 286.071,315.685 L290.227,187.869 M285.031,366.604 C285.031,361.409 280.875,357.252 275.679,357.252 L222.682,357.252 C217.486,357.252 213.329,361.409 213.329,366.604 L213.329,419.601 C213.329,424.797 217.486,428.954 222.682,428.954 L275.679,428.954 C280.875,428.954 285.031,424.797 285.031,419.601 L285.031,366.604 Z" style="stroke:none;fill-rule:evenodd;fill:#000000;fill-opacity:1;"/>
+        </g>
+    </g>
+</svg>

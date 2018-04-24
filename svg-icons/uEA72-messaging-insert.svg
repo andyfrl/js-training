@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+    <desc iVinci="yes" version="4.6" gridStep="20" showGrid="no" snapToGrid="no" codePlatform="0"/>
+    <g id="Layer1" name="Layer 1" opacity="1">
+        <g id="Shape1">
+            <desc shapeID="1" type="0" basicInfo-basicType="0" basicInfo-roundedRectRadius="12" basicInfo-polygonSides="6" basicInfo-starPoints="5" bounding="rect(-247.255,-207.046,494.509,414.092)" text="" font-familyName="" font-pixelSize="20" font-bold="0" font-underline="0" font-alignment="1" strokeStyle="0" markerStart="0" markerEnd="0" shadowEnabled="0" shadowOffsetX="0" shadowOffsetY="2" shadowBlur="4" shadowOpacity="160" blurEnabled="0" blurRadius="4" transform="matrix(1.00653,0,0,1.00653,248.868,208.477)" pers-center="0,0" pers-size="0,0" pers-start="0,0" pers-end="0,0" locked="0" mesh="" flag=""/>
+            <path id="shapePath1" d="M376.927,224.786 L200.544,401.169 C196.92,404.793 190.88,407.209 186.047,407.209 C175.174,407.209 165.51,397.545 165.51,386.672 L165.51,293.648 L20.5377,293.648 C9.66478,293.648 -1.52588e-05,283.983 -1.52588e-05,273.11 L-1.52588e-05,148.676 C-1.52588e-05,137.803 9.66478,128.139 20.5377,128.139 L165.51,128.139 L165.51,35.1149 C165.51,24.242 175.174,14.5772 186.047,14.5772 C192.088,14.5772 196.92,16.9934 200.544,20.6177 L376.927,197 C380.551,200.624 382.967,206.665 382.967,211.497 C382.967,216.33 380.551,221.162 376.927,224.786 M496.529,323.851 C496.529,375.799 454.245,416.874 403.505,416.874 L299.609,416.874 C293.568,416.874 288.736,412.042 288.736,406.001 C288.736,397.545 285.111,374.591 299.609,374.591 L403.505,374.591 C432.5,374.591 455.453,351.637 455.453,322.643 L455.453,94.3118 C455.453,65.3174 432.5,42.3635 403.505,42.3635 L310.481,42.3635 C302.025,42.3635 289.944,43.5716 289.944,31.4906 C289.944,23.0339 286.319,0.0800171 300.817,0.0800171 L404.713,0.0800171 C456.661,0.0800171 497.737,42.3635 497.737,93.1037 L497.737,323.851 L496.529,323.851 Z" style="stroke:none;fill-rule:nonzero;fill:#000000;fill-opacity:1;"/>
+        </g>
+    </g>
+</svg>
