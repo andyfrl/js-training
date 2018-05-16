@@ -94,56 +94,25 @@
                         <th id="rl">ROLE<span class="font-icon ico-f ico-f-sorting"></span></th>
                         <th class="table-arrow"></th>
                     </tr>
-                    <tr>
-                        <td class="select-item"><span class="font-icon ico-f"></span></td>
-                        <td class="l-name">Augustus</td><td class="f-name">Stephanie</td><td class="role">Owner</td>
-                        <td class="table-arrow">
-                            <span class="font-icon ico-f ico-f-angle-right"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="select-item"><span class="font-icon ico-f"></span></td>
-                        <td class="l-name">Blaine</td><td class="f-name">Jacob</td><td class="role">Owner</td>
-                        <td class="table-arrow">
-                            <span class="font-icon ico-f ico-f-angle-right"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="select-item"><span class="font-icon ico-f"></span></td>
-                        <td class="l-name">Harrold</td><td class="f-name">Samantha</td><td class="role">Owner</td>
-                        <td class="table-arrow">
-                            <span class="font-icon ico-f ico-f-angle-right"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="select-item"><span class="font-icon ico-f"></span></td>
-                        <td class="l-name">Lanell</td><td class="f-name">Matthew</td><td class="role">Owner</td>
-                        <td class="table-arrow">
-                            <span class="font-icon ico-f ico-f-angle-right"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="select-item"><span class="font-icon ico-f"></span></td>
-                        <td class="l-name">Smith</td><td class="f-name">Patrick</td><td class="role">Owner</td>
-                        <td class="table-arrow">
-                            <span class="font-icon ico-f ico-f-angle-right"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="select-item"><span class="font-icon ico-f"></span></td>
-                        <td class="l-name">Zophia</td><td class="f-name">Stephanie</td><td class="role">Owner</td>
-                        <td class="table-arrow">
-                            <span class="font-icon ico-f ico-f-angle-right"></span>
-                        </td>
-                    </tr>
+                    
                 </table>
-            </div>
+
+                
+
+                <span id="employee-selection-footer">
+                    <span id="employee-selection-footer-caption">Employee Selected Deselect</span>
+                    <span class="close-icon font-icon ico-f ico-f-move"></span>
+                    <span class="close-icon font-icon ico-f ico-f-empl-perms"></span>
+                    <span class="close-icon font-icon ico-f ico-f-trash"></span>
+                </span>
+
+            </div> <!-- end of employee list table -->
 
             <!-- Employee Details -->
             <form id="form-employee-details" action="https://jsonplaceholder.typicode.com/users">
 
                 <div id="form-caption">Employee Information</div>
-                <div id="employee-details">
+                <div class="employee-details">
                     
                     <span class="big-field">
                         <div class="field-name">FIRST NAME*</div>
@@ -153,7 +122,9 @@
                         <div class="field-name">LAST NAME*</div>
                         <input type="text" id="last-name" class="input-box">
                     </span> 
+                </div>
 
+                <div class="employee-details">
                     <span class="big-field">
                         <div class="field-name">ROLE*</div>
                         <input type="text" id="role" class="input-box">
@@ -167,7 +138,9 @@
                         <div class="field-name">WAGE*</div>
                         <input type="text" id="wage" class="input-box">
                     </span>
+                </div>
 
+                <div class="employee-details">
                     <span class="big-field">
                         <div class="field-name">EMAIL ADDRESS*</div>
                         <input type="email" id="email-address" class="input-box">
@@ -176,9 +149,9 @@
                         <div class="field-name">PHONE NUMBER*</div>
                         <input type="tel" id="phone-number" class="input-box">
                     </span> 
-     
-                
+
                 </div>
+     
                 <div id="filler">
                     <input type="button" value="Cancel" id="btn-employee-cancel" class="upload">
                     <input type="submit" value="Submit" id="btn-employee-add" class="add">
@@ -186,11 +159,38 @@
 
             </form>
 
-        </div>
+            <div id="confirmation-box">
+               <span class="default-caption-right-padding">Your Employee list has been updated!</span>
+               <span class="close-icon font-icon ico-f ico-f-cross"></span> 
+            </div>
+
+        </div> <!-- end of main container -->
         
+    </div> <!-- end of menu container -->
+
+    <!-- Modals -->
+    <div id="change-employee-role-modal" class="modal">
+        <div class="modal-content">
+            <div id='caption-change-role'>
+                Change Role
+            </div>
+            <div id='body-change-role'>
+                Which role would you like to apply to the selected employees?
+            </div>
+            <br>
+            <div id="controls-change-role">
+                <div id="btn-controls-owner" class="close-icon font-icon ico-f ico-f-radio">
+                </div>Owner<br>
+                <div id="btn-controls-employee" class="close-icon font-icon ico-f ico-f-radio">
+                </div>Employee<br>
+            </div>
+
+            <input type="button" value="Cancel" id="btn-change-role-cancel" class="upload">
+            <input type="button" value="Apply New Role" id="btn-change-role-apply" class="add">
+        </div>
     </div>
 
-    
+<script src="modal.js"></script>    
 <script>
     document.getElementById("datetime").innerHTML = formatDate(new Date());
 
@@ -214,25 +214,60 @@
 </script>
 <script type="text/javascript">
 $(document).ready(function() {
+    var selectedCount = 0; /* count selected employees in eployees list */
+
     $('#employee-list').hide();
     $('#form-employee-details').hide();
+    $('#confirmation-box').hide();
 
+    $.ajax({
+            method:'GET',
+            url: '/employees',
+            dataType: 'json'
+        }).done(function(data) {
+            console.log(data);
+            $.map(data, function(user, i) {
+                $('#emp-table > tbody:last-child').append(
+                '<tr data-id='+user._id+'>\
+                    <td class="select-item"><span class="font-icon ico-f"></span></td>\
+                    <td class="l-name">'+user.last_name+'</td>\
+                    <td class="f-name">'+user.first_name+'</td>\
+                    <td class="role">'+user.role+'</td>\
+                    <td class="table-arrow">\
+                        <span class="font-icon ico-f ico-f-angle-right"></span>\
+                    </td>\
+                </tr>');
+
+            });
+        });
+
+    
+    /* Employees selection from list */
     $('#employee-list').on('click', '.select-item', function() {
-
+            
             icon = $(this).find('span');
             if (icon.hasClass("ico-f-radio")) {
                 icon.addClass("ico-f-ok").removeClass("ico-f-radio");
+                selectedCount++;
             } else if (icon.hasClass("ico-f-ok")) {
                 icon.addClass("ico-f-radio").removeClass("ico-f-ok");
+                selectedCount--;
             } else if (!icon.hasClass("ico-f-radio") && !icon.hasClass("ico-f-ok")) {
                 
                 icon.addClass("ico-f-ok");
+                selectedCount++;
                 $('.select-item').children('span').each(function() {
                     if (!$(this).hasClass('ico-f-radio') && !$(this).hasClass('ico-f-ok')) {
                         $(this).addClass('ico-f-radio');
                     }
                 });
                 
+            }
+
+            if (selectedCount > 1) {
+                $('#employee-selection-footer-caption').html(selectedCount+" Employees Selected Deselect");
+            } else {
+                $('#employee-selection-footer-caption').html(selectedCount+" Employee Selected Deselect");
             }
     });
 
@@ -243,17 +278,24 @@ $(document).ready(function() {
             icon.addClass("ico-f-ok").removeClass('ico-f-radio');
             
             $('.select-item').children('span').each(function() {
-                $(this).addClass('ico-f-ok').removeClass('ico-f-radio');
+                if (!$(this).hasClass('ico-f-ok')) {
+                    $(this).addClass('ico-f-ok').removeClass('ico-f-radio');
+                    selectedCount++;
+                }
             });
 
         } else if (icon.hasClass("ico-f-ok")) {
             icon.addClass("ico-f-radio").removeClass("ico-f-ok");
 
             $('.select-item').children('span').each(function() {
-                $(this).addClass('ico-f-radio').removeClass('ico-f-ok');
+                if (!$(this).hasClass('ico-f-radio')) {
+                    $(this).addClass('ico-f-radio').removeClass('ico-f-ok');
+                    selectedCount--;
+                }
             });
         }
 
+        $('#employee-selection-footer-caption').html(selectedCount+" Employees Selected Deselect");
         
     });
 
@@ -302,32 +344,64 @@ $(document).ready(function() {
         var firstName = $('#first-name').val(),
             lastName = $('#last-name').val(),
             role = $('#role').val(),
+            email = $('#email-address').val(),
             url = $(this).attr('action');
 
-        // $.post(url, {firstName:firstName, lastName:lastName}).
-        //     done(function(data) {
-        //         console.log('User Saved');
-        //         console.log(data);
-        // });
+        $.post('/add_employee', {first_name:firstName, last_name:lastName, email:email, role:role}).
+            done(function(data) {
+                 console.log('User Saved');
+                 console.log(data);
+                 
+        
+                $('#emp-table > tbody:last-child').append(
+                '<tr data-id='+data+'>\
+                    <td class="select-item"><span class="font-icon ico-f"></span></td>\
+                    <td class="l-name">'+lastName+'</td><td class="f-name">'+firstName+'</td><td class="role">'+role+'</td>\
+                    <td class="table-arrow">\
+                        <span class="font-icon ico-f ico-f-angle-right"></span>\
+                    </td>\
+                </tr>');
 
-        $('#emp-table > tbody:last-child').append(
-        '<tr>\
-            <td class="select-item"><span class="font-icon ico-f"></span></td>\
-            <td class="l-name">'+lastName+'</td><td class="f-name">'+firstName+'</td><td class="role">'+role+'</td>\
-            <td class="table-arrow">\
-                <span class="font-icon ico-f ico-f-angle-right"></span>\
-            </td>\
-        </tr>');
+                $('#form-employee-details').hide();
+                $('.main-1-controls-employees > h4').replaceWith('<h4>Employees</h4>');
+                $('#employee-list').show();
+                $('#confirmation-box').slideDown(300);
+
+                setTimeout(
+                    function() {
+                        $('#confirmation-box').slideUp(300)
+                    }
+                , 5000);
+        });
+
+        
 
     });
 
     /* Delete employee */
     $('.del-employee').click(function() {
+        var employeeToRemove;
+
         $('.select-item').each(function() {
             if ($(this).children('span').hasClass('ico-f-ok')) {
-                $(this).parent('tr').detach();
+                employeeToRemove = $(this).parent('tr');
+                $.ajax({
+                    method:'DELETE',
+                    url: '/employees/delete/' + $(employeeToRemove).data('id'),
+                }).done(function(data) {;
+                    
+                });
+                $(employeeToRemove).detach();
             }
         });
+
+        selectedCount = 0;
+        $('#employee-selection-footer-caption').html(selectedCount+" Employees Selected Deselect");
+
+        // $.ajax({
+        //     method:'DELETE',
+        //     url: '/employees/delete/' + $(employeeToRemove).data('id'),
+        // });
     });
     
     /* Click on side menu employees */
@@ -335,56 +409,68 @@ $(document).ready(function() {
         $('.main-2').hide();
         $('#form-employee-details').hide();
         $('.main-1-controls-employees > h4').replaceWith('<h4>Employees</h4>');
-        $('#employee-list').show();
-
-        // $('#employee-list').load('tesxt.html', function(
-        //     responseTxt, statusTxt, xhr) {
-        //     if (statusTxt == "success") {
-        //         alert('It went fine');
-        //     } else if (statusTxt == "error") {
-        //         alert("Error: "+xhr.statusText);
-        //     }
-        // });
-        // $.get('test.html', function(data) {
-        //     $('#employee-list').html(data);
-        // });
-
-        $.getJSON('users.json', function(data) {
-            $.each(data, function(index, user) {
-                $('#emp-table > tbody:last-child').append(
-                '<tr>\
-                    <td class="select-item"><span class="font-icon ico-f"></span></td>\
-                    <td class="l-name">'+user.lastName+'</td>\
-                    <td class="f-name">'+user.firstName+'</td><td class="role">'+user.role+'</td>\
-                    <td class="table-arrow">\
-                        <span class="font-icon ico-f ico-f-angle-right"></span>\
-                    </td>\
-                </tr>');
-            });
-        });
-
-        // $.ajax({
-        //     method:'GET',
-        //     url: 'https://jsonplaceholder.typicode.com/users',
-        //     dataType: 'json'
-        // }).done(function(data) {
-        //     console.log(data);
-        //     $.map(data, function(user, i) {
-        //         $('#emp-table > tbody:last-child').append(
-        //         '<tr>\
-        //             <td class="select-item"><span class="font-icon ico-f"></span></td>\
-        //             <td class="l-name">'+user.name.substr(user.name.indexOf(' ') + 1)+'</td>\
-        //             <td class="f-name">'+user.name.substr(0, user.name.indexOf(' '))+'</td>\
-        //             <td class="role">'+user.company.bs+'</td>\
-        //             <td class="table-arrow">\
-        //                 <span class="font-icon ico-f ico-f-angle-right"></span>\
-        //             </td>\
-        //         </tr>');
-
-        //     });
-        // });
+        $('#employee-list').show(); 
 
     }); /* employees side menu */
+
+    /* 
+     * Miscellaneous button onclicks 
+     */
+    $('.close-icon').click(function() {
+        $('#confirmation-box').slideUp(300);
+    }); /* close icon onclick */ 
+
+    /* Show modal - change role */
+    $('.ico-f-move').click(function() {
+        openModal();
+    }); /* close icon onclick */ 
+
+    /* Modal Employee role change menu */
+    $('#btn-controls-owner').click(function() {
+        if ($(this).hasClass('ico-f-radio')) {
+            $(this).removeClass('ico-f-radio');
+            $(this).addClass('ico-f-radio-checked');
+            $('#btn-controls-employee').addClass('ico-f-radio');
+            $('#btn-controls-employee').removeClass('ico-f-radio-checked');
+        }
+    });
+
+    /* Modal Employee role change menu */
+    $('#btn-controls-employee').click(function() {
+        if ($(this).hasClass('ico-f-radio')) {
+            $(this).removeClass('ico-f-radio');
+            $(this).addClass('ico-f-radio-checked');
+            $('#btn-controls-owner').addClass('ico-f-radio');
+            $('#btn-controls-owner').removeClass('ico-f-radio-checked');
+        }
+    });
+
+    $('#btn-change-role-apply').click(function() {
+        $('.select-item').each(function() {
+            if ($(this).children('span').hasClass('ico-f-ok')) {
+                var employeeToUpdate = $(this).parent('tr');
+                var first_name = $(employeeToUpdate).find(".f-name").html(),
+                    last_name = $(employeeToUpdate).find(".l-name").html(),
+                    role = "Owner";
+
+                if ($('#btn-controls-employee').hasClass('ico-f-radio-checked')) {
+                    role = "Empoyee";
+                }
+
+                $.ajax({
+                    method:'PUT',
+                    url: '/employees/update/' + $(employeeToUpdate).data('id'),
+                    data: {
+                        first_name: first_name,
+                        last_name: last_name,
+                        role: role
+                    }
+                });
+                $(employeeToUpdate).find(".role").html(role);
+            }
+        });
+    });
+
 
 });
 </script>
