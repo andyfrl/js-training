@@ -8,7 +8,13 @@
 - get all data from API server
 - create new data, modify, delete data with REST API
 
-4. SAP (React)
+4. Backbone js
+- redo with Backbone
+
+5. Backbone Marionette js
+- redo with Marionette
+
+6. SAP (React)
 - redo the same with react
 
-5. Flux/Redux
+7. Flux/Redux
