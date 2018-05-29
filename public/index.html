@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>Employee List</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/fw/jquery.js"></script>
+    <script src="js/fw/underscore-min.js"></script>
+    <script src="js/fw/json2.js"></script>
+    <script src="js/fw/backbone.js"></script>
+    <script src="js/fw/backbone.marionette.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
     <link rel="stylesheet" media="all" href="revel-font.css">
 </head>
@@ -190,29 +194,21 @@
         </div>
     </div>
 
-<script src="modal.js"></script>    
-<script>
-    document.getElementById("datetime").innerHTML = formatDate(new Date());
+<script src="js/modal.js"></script>
+<script src="js/models.js"></script>
 
-    function formatDate(date) {
-        var year = date.getFullYear(),
-            month = date.getMonth() + 1,
-            day = date.getDate(),
-            hour = date.getHours(),
-            minute = date.getMinutes(),
-            second = date.getSeconds(),
-            yearFormatted = year.toString().substr(-2),
-            monthFormatted = month < 10 ? "0" + month : month,
-            dayFormatted = day < 10 ? "0" + day : day,
-            minuteFormatted = minute < 10 ? "0" + minute : minute,
-            secondFormatted = second < 10 ? "0" + second : second,
-            amPm = hour < 12 ? "AM" : "PM";
+<!-- Templates -->
 
-        return monthFormatted + "/" + dayFormatted + "/" + yearFormatted + ", " + hour + ":" +
-                minuteFormatted + ":" + second + " " + amPm;
-    }
-</script>
+  <script type="text/template" class="employee-entry-template">
+      <td class="select-item"><span class="font-icon ico-f"></span></td>
+      <td class="l-name"><%= last_name %></td>
+      <td class="f-name"><%= first_name %></td>
+      <td class="role"><%= role %></td>
+      <td class="table-arrow"><span class="font-icon ico-f ico-f-angle-right"></span></td>
+  </script>
+
 <script type="text/javascript">
+
 $(document).ready(function() {
     var selectedCount = 0; /* count selected employees in eployees list */
 
@@ -220,257 +216,12 @@ $(document).ready(function() {
     $('#form-employee-details').hide();
     $('#confirmation-box').hide();
 
-    $.ajax({
-            method:'GET',
-            url: '/employees',
-            dataType: 'json'
-        }).done(function(data) {
-            console.log(data);
-            $.map(data, function(user, i) {
-                $('#emp-table > tbody:last-child').append(
-                '<tr data-id='+user._id+'>\
-                    <td class="select-item"><span class="font-icon ico-f"></span></td>\
-                    <td class="l-name">'+user.last_name+'</td>\
-                    <td class="f-name">'+user.first_name+'</td>\
-                    <td class="role">'+user.role+'</td>\
-                    <td class="table-arrow">\
-                        <span class="font-icon ico-f ico-f-angle-right"></span>\
-                    </td>\
-                </tr>');
-
-            });
-        });
-
-    
-    /* Employees selection from list */
-    $('#employee-list').on('click', '.select-item', function() {
-            
-            icon = $(this).find('span');
-            if (icon.hasClass("ico-f-radio")) {
-                icon.addClass("ico-f-ok").removeClass("ico-f-radio");
-                selectedCount++;
-            } else if (icon.hasClass("ico-f-ok")) {
-                icon.addClass("ico-f-radio").removeClass("ico-f-ok");
-                selectedCount--;
-            } else if (!icon.hasClass("ico-f-radio") && !icon.hasClass("ico-f-ok")) {
-                
-                icon.addClass("ico-f-ok");
-                selectedCount++;
-                $('.select-item').children('span').each(function() {
-                    if (!$(this).hasClass('ico-f-radio') && !$(this).hasClass('ico-f-ok')) {
-                        $(this).addClass('ico-f-radio');
-                    }
-                });
-                
-            }
-
-            if (selectedCount > 1) {
-                $('#employee-selection-footer-caption').html(selectedCount+" Employees Selected Deselect");
-            } else {
-                $('#employee-selection-footer-caption').html(selectedCount+" Employee Selected Deselect");
-            }
-    });
-
-    /* Select all employee button operations */
-    $('.select-all').click(function() {
-        var icon = $(this).find('span');
-        if (icon.hasClass("ico-f-radio")) {
-            icon.addClass("ico-f-ok").removeClass('ico-f-radio');
-            
-            $('.select-item').children('span').each(function() {
-                if (!$(this).hasClass('ico-f-ok')) {
-                    $(this).addClass('ico-f-ok').removeClass('ico-f-radio');
-                    selectedCount++;
-                }
-            });
-
-        } else if (icon.hasClass("ico-f-ok")) {
-            icon.addClass("ico-f-radio").removeClass("ico-f-ok");
-
-            $('.select-item').children('span').each(function() {
-                if (!$(this).hasClass('ico-f-radio')) {
-                    $(this).addClass('ico-f-radio').removeClass('ico-f-ok');
-                    selectedCount--;
-                }
-            });
-        }
-
-        $('#employee-selection-footer-caption').html(selectedCount+" Employees Selected Deselect");
-        
-    });
-
-    /* Sort contents of the derived class and append 
-     * the resulting set of items to the parent class
-     */
-    function SortAppendElemContents(element_class, child_class, parent_class) {
-        var items = $(child_class).get();
-
-        items.sort(function(a, b) {
-            var cmpA = $(a).text().toUpperCase();
-            var cmpB = $(b).text().toUpperCase();
-            return (cmpA < cmpB) ? -1 : (cmpA > cmpB) ? 1 : 0;
-        });
-        $.each(items, function() {
-            $(element_class).append($(this).parent(parent_class));
-        });
-    }
-
-    /* Sort by last name */
-    $('#employee-list').on('click', '#ln', function() {
-        SortAppendElemContents('#emp-table > tbody', '.l-name', 'tr');
-    });
-
-    /* Sort by first name */
-    $('#employee-list').on('click', '#fn', function() {
-        SortAppendElemContents('#emp-table > tbody', '.f-name', 'tr');
-    });
-
-    /* Sort by role */
-    $('#employee-list').on('click', '#rl', function() {
-        SortAppendElemContents('#emp-table > tbody', '.role', 'tr');
-    });
-
-    /* Add employee by filling detailed informantion*/
-    $('.add-employee').click(function() {
-        $('#employee-list').hide();
-        $('#form-employee-details').show();
-        $('.main-1-controls-employees > h4').replaceWith('<h4>Employee Details</h4>');
-    });
-
-    /* Submit employee details form */
-    $('#form-employee-details').submit(function(event) {
-        event.preventDefault();
-
-        var firstName = $('#first-name').val(),
-            lastName = $('#last-name').val(),
-            role = $('#role').val(),
-            email = $('#email-address').val(),
-            url = $(this).attr('action');
-
-        $.post('/add_employee', {first_name:firstName, last_name:lastName, email:email, role:role}).
-            done(function(data) {
-                 console.log('User Saved');
-                 console.log(data);
-                 
-        
-                $('#emp-table > tbody:last-child').append(
-                '<tr data-id='+data+'>\
-                    <td class="select-item"><span class="font-icon ico-f"></span></td>\
-                    <td class="l-name">'+lastName+'</td><td class="f-name">'+firstName+'</td><td class="role">'+role+'</td>\
-                    <td class="table-arrow">\
-                        <span class="font-icon ico-f ico-f-angle-right"></span>\
-                    </td>\
-                </tr>');
-
-                $('#form-employee-details').hide();
-                $('.main-1-controls-employees > h4').replaceWith('<h4>Employees</h4>');
-                $('#employee-list').show();
-                $('#confirmation-box').slideDown(300);
-
-                setTimeout(
-                    function() {
-                        $('#confirmation-box').slideUp(300)
-                    }
-                , 5000);
-        });
-
-        
-
-    });
-
-    /* Delete employee */
-    $('.del-employee').click(function() {
-        var employeeToRemove;
-
-        $('.select-item').each(function() {
-            if ($(this).children('span').hasClass('ico-f-ok')) {
-                employeeToRemove = $(this).parent('tr');
-                $.ajax({
-                    method:'DELETE',
-                    url: '/employees/delete/' + $(employeeToRemove).data('id'),
-                }).done(function(data) {;
-                    
-                });
-                $(employeeToRemove).detach();
-            }
-        });
-
-        selectedCount = 0;
-        $('#employee-selection-footer-caption').html(selectedCount+" Employees Selected Deselect");
-
-        // $.ajax({
-        //     method:'DELETE',
-        //     url: '/employees/delete/' + $(employeeToRemove).data('id'),
-        // });
-    });
-    
-    /* Click on side menu employees */
-    $('li.employees').click(function() {
-        $('.main-2').hide();
-        $('#form-employee-details').hide();
-        $('.main-1-controls-employees > h4').replaceWith('<h4>Employees</h4>');
-        $('#employee-list').show(); 
-
-    }); /* employees side menu */
-
     /* 
      * Miscellaneous button onclicks 
      */
-    $('.close-icon').click(function() {
-        $('#confirmation-box').slideUp(300);
-    }); /* close icon onclick */ 
-
-    /* Show modal - change role */
-    $('.ico-f-move').click(function() {
-        openModal();
-    }); /* close icon onclick */ 
-
-    /* Modal Employee role change menu */
-    $('#btn-controls-owner').click(function() {
-        if ($(this).hasClass('ico-f-radio')) {
-            $(this).removeClass('ico-f-radio');
-            $(this).addClass('ico-f-radio-checked');
-            $('#btn-controls-employee').addClass('ico-f-radio');
-            $('#btn-controls-employee').removeClass('ico-f-radio-checked');
-        }
-    });
-
-    /* Modal Employee role change menu */
-    $('#btn-controls-employee').click(function() {
-        if ($(this).hasClass('ico-f-radio')) {
-            $(this).removeClass('ico-f-radio');
-            $(this).addClass('ico-f-radio-checked');
-            $('#btn-controls-owner').addClass('ico-f-radio');
-            $('#btn-controls-owner').removeClass('ico-f-radio-checked');
-        }
-    });
-
-    $('#btn-change-role-apply').click(function() {
-        $('.select-item').each(function() {
-            if ($(this).children('span').hasClass('ico-f-ok')) {
-                var employeeToUpdate = $(this).parent('tr');
-                var first_name = $(employeeToUpdate).find(".f-name").html(),
-                    last_name = $(employeeToUpdate).find(".l-name").html(),
-                    role = "Owner";
-
-                if ($('#btn-controls-employee').hasClass('ico-f-radio-checked')) {
-                    role = "Empoyee";
-                }
-
-                $.ajax({
-                    method:'PUT',
-                    url: '/employees/update/' + $(employeeToUpdate).data('id'),
-                    data: {
-                        first_name: first_name,
-                        last_name: last_name,
-                        role: role
-                    }
-                });
-                $(employeeToUpdate).find(".role").html(role);
-            }
-        });
-    });
-
+    // $('.close-icon').click(function() {
+    //     $('#confirmation-box').slideUp(300);
+    // }); /* close icon onclick */ 
 
 });
 </script>

@@ -68,7 +68,7 @@ app.post('/add_employee', function(req, res) {
     
     req.checkBody('first_name', 'First Name is Required').notEmpty();
     req.checkBody('last_name', 'Last Name is Required').notEmpty();
-    req.checkBody('email', 'Email is Required').notEmpty();
+    req.checkBody('role', 'Role is Required').notEmpty();
 
     var errors = req.validationErrors();
 
@@ -91,41 +91,6 @@ app.post('/add_employee', function(req, res) {
         });
     }
 })
-/*
-app.post('/users/add', function(req, res) {
-
-    req.checkBody('first_name', 'First Name is Required').notEmpty();
-    req.checkBody('last_name', 'Last Name is Required').notEmpty();
-    req.checkBody('email', 'Email is Required').notEmpty();
-
-    var errors = req.validationErrors();
-
-    if (errors) {
-        res.render('index', {
-        title:'Customers',
-        users: users,
-        errors: errors
-        });
-    } else {
-        var newUser = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        }
-
-        db.users.insert(newUser, function(err, response) {
-            if(err) {
-                console.log(err);
-            }
-            res.redirect('/');
-        });
-
-        console.log('SUCCESS');
-
-    }
-
-});
-*/
 
 app.delete('/employees/delete/:id', function(req,res) {
     console.log(req.params.id);
@@ -136,16 +101,6 @@ app.delete('/employees/delete/:id', function(req,res) {
         res.send("Deleted");
     });
 });
-
-// app.delete('/users/delete/:id', function(req, res) {
-//     console.log(req.params.id);
-//     db.users.remove({_id: ObjectId(req.params.id)}, function(err, result) {
-//         if(err) {
-//             console.log(err);
-//         }
-//         res.redirect('/');
-//     });
-// });
 
 app.put('/employees/update/:id', (req, res, next) => {
     console.log('PUT request received');
@@ -158,11 +113,13 @@ app.put('/employees/update/:id', (req, res, next) => {
                 role: req.body.role,
             }
         }, (err, result) => {
+            res.header('Content-Type', 'text/plain');
             if(err) {
                 console.log(err);
+            } else {
+                console.log(result);
+                res.send("Update SUCCESS");
             }
-            
-            res.send("Update SUCCESS");
         });
 
      
