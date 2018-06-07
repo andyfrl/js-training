@@ -1,0 +1,588 @@
+body,
+html,
+ul {
+  height: 100%;
+}
+header {
+  background-color: #00a3e0;
+  height: 50px;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+}
+/* Links */
+a {
+  cursor: default;
+  color: currentColor;
+  text-decoration: none;
+}
+/* Header contents */
+.header-left {
+  float: left;
+}
+.header-left img {
+  margin-top: 12px;
+  margin-left: 19px;
+}
+.header-right {
+  float: right;
+  color: white;
+  font-size: 13px;
+  margin-top: 15px;
+}
+.ico-f-dropdown,
+.ico-f-radio,
+.ico-f-sorting {
+  font-size: 8px;
+}
+/* Main Container */
+.menu-container {
+  height: 899px;
+  font-family: 'Roboto', sans-serif;
+  color: #527b99;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+/*
+ *
+ * Classes for side menus
+ *
+ */
+.side-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 13.7%;
+  background: #edf9fd;
+  border: 1px solid #d4eaf1;
+  /* Icons for menu items */
+  /* 
+     * Child classes for side menu
+     */
+}
+.side-container .ico-f {
+  margin-right: 15px;
+  margin-left: 20px;
+}
+.side-container li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+}
+.side-container li .item-text {
+  flex-basis: 61%;
+}
+.side-container li .arrow {
+  display: none;
+}
+.side-container li:hover > .arrow {
+  display: block;
+}
+.side-container li:hover {
+  background: #004660;
+  color: white;
+  cursor: pointer;
+}
+.side-container .establishment {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 60px;
+  font-size: 13px;
+  background: #f8fdfe;
+  border: 1px solid #d4eaf1;
+  padding-left: 22px;
+  border-right: none;
+  border-top: none;
+}
+.side-container #establishment-place {
+  font-size: 16px;
+  color: #00a1e0;
+  margin-top: 5px;
+}
+.side-container .dashboard {
+  margin-top: 10px;
+}
+.side-container .employees {
+  margin-bottom: 10px;
+}
+.side-container .quick-books {
+  flex-basis: 10%;
+  box-sizing: border-box;
+  border: 1px solid #d4eaf1;
+  border-right: none;
+}
+.side-container .settings {
+  margin-top: 17px;
+}
+.side-container .help {
+  display: flex;
+  height: 3%;
+  color: #00a1e0;
+  font-size: 11px;
+  border: 1px solid #d4eaf1;
+  padding-left: 22px;
+  align-items: center;
+  border-right: none;
+}
+.side-container #datetime {
+  color: #527b99;
+  margin-right: 15px;
+}
+/*
+ * 
+ * Main container props 
+ *
+ */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+.main-container .ico-f {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.main-container .main-1 {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border: 1px solid #d4eaf1;
+  border-left: none;
+}
+.main-container .main-1 .main-1-controls-employees {
+  flex: 10;
+  margin-left: 20px;
+  font-size: 20px;
+  color: #053b66;
+}
+.main-container .main-1 .main-1-controls-employee-list {
+  flex: 0.7;
+  font-size: 14px;
+  color: #053b66;
+  padding-bottom: 17px;
+  padding-top: 22px;
+  box-sizing: border-box;
+  border-bottom: 3px solid currentColor;
+  white-space: nowrap;
+}
+.main-container .main-1 .main-1-controls-roles {
+  flex: 0.4;
+  margin-left: 35px;
+  font-size: 14px;
+  color: #00a1e0;
+}
+.main-container .main-1 .ico-f-magnifier {
+  font-size: 17px;
+  color: #00a1e0;
+  font-weight: bolder;
+}
+.main-container .main-2 {
+  display: flex;
+  flex-direction: column;
+  flex: 10;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 13px;
+  color: #00a1e0;
+}
+.main-container .main-2 #main-caption {
+  flex-basis: 15%;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 50px;
+  font-size: 45px;
+  color: #9bb1c2;
+  font-weight: lighter;
+}
+.main-container .main-2 .main-2-controls {
+  display: flex;
+  flex-basis: 9%;
+  width: 270px;
+  justify-content: space-between;
+  color: #00a1e0;
+}
+.upload {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #f2fafd;
+  border: 1px solid #00a1e0;
+  color: #00a1e0;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.add {
+  height: 40px;
+  border-radius: 5px;
+  background-color: #00a1e0;
+  border: 1px solid #00a1e0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+/*
+ * 
+ * Employee list
+ * 
+ */
+#employee-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#employee-list #table-caption {
+  margin: 25px;
+}
+#employee-list #emp-table {
+  flex-grow: 10;
+  margin: auto;
+}
+#employee-list #emp-list-controls {
+  margin-right: 25px;
+}
+#employee-list table {
+  width: 97%;
+  margin-left: 25px;
+}
+#employee-list th,
+#employee-list td {
+  height: 40px;
+  text-align: left;
+  border: 1px solid #d4eaf1;
+  border-left: none;
+  border-right: none;
+  padding-top: 10px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+#employee-list th {
+  font-size: 10px;
+  padding-top: 14px;
+  cursor: pointer;
+}
+#employee-list td {
+  border-top: none;
+}
+#employee-list .select-item,
+#employee-list .select-all {
+  flex-basis: 6%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#employee-list .table-arrow {
+  width: 1000px;
+}
+#employee-list .ico-f-angle-right {
+  float: right;
+}
+#employee-list .ico-f-radio {
+  font-size: 14px;
+}
+#employee-list .ico-f-ok {
+  font-size: 16px;
+}
+#employee-selection-footer {
+  flex: 10;
+  height: 50px;
+  border: 1px solid #d4eaf1;
+  font-size: 16px;
+  line-height: 50px;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  align-self: flex-end;
+  align-content: center;
+  white-space: nowrap;
+  margin: auto;
+}
+#employee-selection-footer .ico-f-move {
+  cursor: pointer;
+}
+#employee-selection-footer-caption {
+  margin-left: 20px;
+  margin-right: 400px;
+}
+/* 
+ *
+ * Employee Details 
+ *
+ */
+#form-caption {
+  margin: 13px 0px 18px 18px;
+}
+.employee-details {
+  display: flex;
+  margin-left: 20px;
+}
+.employee-details .field-name {
+  font-size: 9px;
+  font-weight: bolder;
+  margin-bottom: 9px;
+  white-space: nowrap;
+}
+.employee-details .input-box {
+  height: 30px;
+  width: 97%;
+  border-radius: 5px;
+  border: 2px solid #d4eaf1;
+  font-size: 16px;
+  margin-bottom: 9px;
+  padding-left: 10px;
+}
+.employee-details #wage {
+  text-align: right;
+  padding-right: 10px;
+}
+.employee-details .big-field {
+  flex-basis: 48%;
+  margin-right: 20px;
+}
+.employee-details .small-field {
+  flex-basis: 22.4%;
+  margin-right: 30px;
+}
+.employee-details #confirmation-box {
+  align-self: center;
+  color: #e3e9ee;
+  background-color: #7593ab;
+  line-height: 50px;
+  text-align: center;
+  height: 50px;
+  width: 400px;
+  border-radius: 2px;
+}
+.employee-details .default-caption-right-padding {
+  padding-right: 70px;
+}
+.employee-details .close-icon {
+  cursor: pointer;
+}
+#filler {
+  height: 525px;
+  border: 1px solid #d4eaf1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+#filler #btn-employee-add {
+  float: right;
+  margin-right: 40px;
+  margin-top: 34em;
+}
+#filler #btn-employee-cancel {
+  float: left;
+  margin-left: 40px;
+  margin-top: 34em;
+}
+/* 
+ *
+ * Modals
+ *
+ */
+.modal {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  color: #527b99;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation-name: modalopen;
+  animation-duration: 0.2s;
+}
+.modal .modal-content {
+  background-color: white;
+  margin: 10% auto;
+  width: 35%;
+  height: 29%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+.modal #caption-change-role {
+  font-size: 22px;
+  color: #00a3e0;
+  background-color: #edf9fd;
+  text-align: center;
+  border: 1px solid #d4eaf1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 20px;
+}
+.modal #body-change-role {
+  padding: 20px;
+  padding-bottom: 0px;
+  font-size: 17px;
+}
+.modal #controls-change-role {
+  padding: 10px;
+  padding-top: 0px;
+  padding-left: 20px;
+  font-size: 21px;
+}
+.modal #btn-controls-owner,
+.modal #btn-controls-employee {
+  padding: 10px;
+}
+.modal .ico-f-radio,
+.modal .ico-f-radio-checked {
+  color: #00a3e0;
+  font-size: 14px;
+}
+.modal #btn-change-role-cancel {
+  float: left;
+  width: 200px;
+  cursor: pointer;
+  margin-left: 25px;
+  margin-top: 20px;
+}
+.modal #btn-change-role-apply {
+  float: right;
+  width: 200px;
+  cursor: pointer;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+tbody,
+tfoot,
+thead,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

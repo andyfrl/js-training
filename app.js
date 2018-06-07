@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
+var cors = require('cors');
 var db = mongojs('users', ['users']);
 var ObjectId = mongojs.ObjectId;
 
@@ -16,6 +17,7 @@ var app = express();
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors({credentials: true, origin: true}));
 
 //Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
@@ -72,6 +74,8 @@ app.post('/add_employee', function(req, res) {
 
     var errors = req.validationErrors();
 
+    console.log('pOst received');
+
     if (errors) {
         console.log(errors);
     } else {
@@ -87,6 +91,8 @@ app.post('/add_employee', function(req, res) {
             if(err) {
                 console.log(err);
             }
+            /*res.header('Access-Control-Allow-Origin', "*");*/
+            console.log('response sent');
             res.send(newUser._id);
         });
     }

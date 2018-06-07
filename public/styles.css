@@ -19,28 +19,6 @@ ul {
  */
 a {
     cursor:default;
-}
-
-/* unvisited link */
-a:link {
-    color: currentColor;
-    text-decoration: none;
-}
-
-/* visited link */
-a:visited {
-    color: currentColor;
-    text-decoration: none;
-}
-
-/* mouse over link */
-a:hover {
-    color: currentColor;
-    text-decoration: none;
-}
-
-/* selected link */
-a:active {
     color: currentColor;
     text-decoration: none;
 }
@@ -496,7 +474,7 @@ td {
  */
 
 .modal {
-    display: none;
+    display: block;
     font-family: 'Roboto', sans-serif;
     color:#527b99;
     position:fixed;

@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Employee List</title>
-    <script src="js/fw/jquery.js"></script>
-    <script src="js/fw/underscore-min.js"></script>
-    <script src="js/fw/json2.js"></script>
-    <script src="js/fw/backbone.js"></script>
-    <script src="js/fw/backbone.marionette.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles-compiled.css" media="screen">
     <link rel="stylesheet" media="all" href="revel-font.css">
 </head>
 
@@ -19,160 +16,198 @@
             <span class="header-right">Welcome, Samantha H<span class="font-icon ico-f ico-f-dropdown"></span></span>
         </a>
     </header>
+    <div class='container'>
+    </div>
 
-    <div class="menu-container">
-        <div class="side-container">
-            <div class="establishment">
-                <span id="establishment-caption">Establishment:</span>
-                <span id="establishment-place">Annette's place</span>
+<!-- Templates -->
+<script type="x-template/underscore" class="layout-template">
+    <div class='side-container'>
+    </div>
+
+    <div class='main-container'>
+    </div>
+
+    <div class='modal-container'>
+    </div>
+</script>
+
+<!-- Side container template -->
+<script type="x-template/underscore" class="side-template">
+    <div class="establishment">
+        <span id="establishment-caption">Establishment:</span>
+        <span id="establishment-place">Annette's place</span>
+    </div>
+    <ul>
+        <li class="dashboard">
+            <span class="font-icon ico-f ico-f-overview"></span><span class="item-text">Dashboard</span>
+            <div class="arrow">
+                <span class="font-icon ico-f ico-f-angle-right"></span>
             </div>
-            <ul>
-                <li class="dashboard">
-                    <span class="font-icon ico-f ico-f-overview"></span><span class="item-text">Dashboard</span>
-                    <div class="arrow">
-                        <span class="font-icon ico-f ico-f-angle-right"></span>
-                    </div>
-                </li>
-                <li>
-                    <span class="font-icon ico-f ico-f-shopping-cart"></span><span class="item-text">Products</span>
-                    <div class="arrow">
-                        <span class="font-icon ico-f ico-f-angle-right"></span>
-                    </div>
-                </li>
-                <li class="employees">
-                    <span class="font-icon ico-f ico-f-employees-many"></span><span class="item-text">Employees</span>
-                    <div class="arrow">
-                        <span class="font-icon ico-f ico-f-angle-right"></span>
-                    </div>
-                </li>
-                <li class="quick-books">
-                    <span class="font-icon ico-f ico-f-at"></span><span class="item-text">QuickBooks</span>
-                    <div class="arrow">
-                        <span class="font-icon ico-f ico-f-angle-right"></span>
-                    </div>
-                </li>
-                <li class="settings">
-                    <span class="font-icon ico-f ico-f-settings"></span><span class="item-text">Settings</span>
-                    <div class="arrow">
-                        <span class="font-icon ico-f ico-f-angle-right"></span>
-                    </div>
-                </li>
-            </ul>
-            <span class="help">
-                <span id="datetime"></span>Need Help?
+        </li>
+        <li>
+            <span class="font-icon ico-f ico-f-shopping-cart"></span><span class="item-text">Products</span>
+            <div class="arrow">
+                <span class="font-icon ico-f ico-f-angle-right"></span>
+            </div>
+        </li>
+        <li class="employees">
+            <span class="font-icon ico-f ico-f-employees-many"></span><span class="item-text">Employees</span>
+            <div class="arrow">
+                <span class="font-icon ico-f ico-f-angle-right"></span>
+            </div>
+        </li>
+        <li class="quick-books">
+            <span class="font-icon ico-f ico-f-at"></span><span class="item-text">QuickBooks</span>
+            <div class="arrow">
+                <span class="font-icon ico-f ico-f-angle-right"></span>
+            </div>
+        </li>
+        <li class="settings">
+            <span class="font-icon ico-f ico-f-settings"></span><span class="item-text">Settings</span>
+            <div class="arrow">
+                <span class="font-icon ico-f ico-f-angle-right"></span>
+            </div>
+        </li>
+    </ul>
+    <span class="help">
+        <span id="datetime"></span>Need Help?
+    </span>
+</script>
+
+<!-- Main page template -->
+<script type="x-template/underscore" class="main-template">
+    <div class="main-1">
+        <div class="main-1-controls-employees">
+            <h4>Employees</h4>
+        </div>
+        <span class="main-1-controls-employee-list"><h4>Employee List</h4></span>
+        <span class="main-1-controls-roles"><h4>Roles</h4></span>
+        <span class="font-icon ico-f ico-f-magnifier"></span>
+    </div>
+
+    <div class="main-2">
+        <div id="main-caption">
+            Let's add<br>some emlpoyees!
+        </div>
+
+        <div class="main-2-controls">
+            <button class="upload">Upload Template</button>
+            <button class="add">Add Employee</button>
+        </div>
+        Download Employee Template
+    </div>
+</script>
+
+<!-- 
+     Employee List zone 
+     Modify at your own risk
+     Violators will be punished
+-->
+<script type="x-template/underscore" class="employee-list-template">
+    <span id="table-caption">Employee List</span>
+    <span id="emp-list-controls">
+        <button class="upload del-employee">- Del</button>
+        <button class="add add-employee">+ Add</button>
+    </span>
+    <table id='emp-table'>
+    </table>
+    <span id="employee-selection-footer">
+    </span>
+</script>
+
+<!-- Employee Table template -->
+<script type="x-template/underscore" class="employee-list-table-template">
+    <thead>
+        <tr id="nav-bar">
+            <th class="select-all"><span class="font-icon ico-f ico-f-radio"></span>
+            <div class="font-icon ico-f ico-f-dropdown"></div></th>
+            <th id="ln">LAST NAME<span class="font-icon ico-f ico-f-sorting"></span></th>
+            <th id="fn">FIRST NAME<span class="font-icon ico-f ico-f-sorting"></span></th>
+            <th id="rl">ROLE<span class="font-icon ico-f ico-f-sorting"></span></th>
+            <th class="table-arrow"></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</script>
+
+<!-- Employee Footer template -->
+<script type="x-template/underscore" class="employee-list-footer-template">
+    <span id="employee-selection-footer-caption">Employee Selected Deselect</span>
+    <span class="close-icon font-icon ico-f ico-f-move"></span>
+    <span class="close-icon font-icon ico-f ico-f-empl-perms"></span>
+    <span class="close-icon font-icon ico-f ico-f-trash"></span>
+</script>
+
+<!-- Employee Row template -->
+<script type="x-template/underscore" class="employee-entry-template">
+  <td class="select-item"><span class="font-icon ico-f"></span></td>
+  <td class="l-name"><%= last_name %></td>
+  <td class="f-name"><%= first_name %></td>
+  <td class="role"><%= role %></td>
+  <td class="table-arrow"><span class="font-icon ico-f ico-f-angle-right"></span></td>
+</script>
+
+<!-- Employee Details Form template -->
+<script type="x-template/underscore" class="employee-details-form-template">
+        <div id="form-caption">Employee Information</div>
+        <div class="employee-details">
+            
+            <span class="big-field">
+                <div class="field-name">FIRST NAME*</div>
+                <input type="text" id="first-name" class="input-box">
+            </span>
+            <span class="big-field">
+                <div class="field-name">LAST NAME*</div>
+                <input type="text" id="last-name" class="input-box">
+            </span> 
+        </div>
+
+        <div class="employee-details">
+            <span class="big-field">
+                <div class="field-name">ROLE*</div>
+                <input type="text" id="role" class="input-box">
+            </span>
+
+            <span class="small-field">
+                <div class="field-name">POS LOGIN PIN*</div>
+                <input type="password" id="pos-login-pin" class="input-box">
+            </span>
+            <span class="small-field">
+                <div class="field-name">WAGE*</div>
+                <input type="text" id="wage" class="input-box">
             </span>
         </div>
-        <div class="main-container">
-            <div class="main-1">
-                <div class="main-1-controls-employees"><h4>Employees</h4></div>
-                <span class="main-1-controls-employee-list"><h4>Employee List</h4></span>
-                <span class="main-1-controls-roles"><h4>Roles</h4></span>
-                <span class="font-icon ico-f ico-f-magnifier"></span>
-                
-            </div>
-            <div class="main-2">
-                <div id="main-caption">
-                    Let's add<br>some emlpoyees!
-                </div>
-                <div class="main-2-controls">
-                    <button class="upload">Upload Template</button>
-                    <button class="add">Add Employee</button>
 
-                </div>
-                Download Employee Template
-                
-            </div>
+        <div class="employee-details">
+            <span class="big-field">
+                <div class="field-name">EMAIL ADDRESS*</div>
+                <input type="email" id="email-address" class="input-box">
+            </span>
+            <span class="big-field">
+                <div class="field-name">PHONE NUMBER*</div>
+                <input type="tel" id="phone-number" class="input-box">
+            </span> 
 
-            <!-- Employee List table -->
-            <div id="employee-list">
-                <span id="table-caption">Employee List</span>
-                <span id="emp-list-controls">
-                    <button class="upload del-employee">- Del</button>
-                    <button class="add add-employee">+ Add</button>
-                </span>
-                <table id="emp-table">
-                    <tr id="nav-bar">
-                        <th class="select-all"><span class="font-icon ico-f ico-f-radio"></span><div class="font-icon ico-f ico-f-dropdown"></div></th>
-                        <th id="ln">LAST NAME<span class="font-icon ico-f ico-f-sorting"></span></th>
-                        <th id="fn">FIRST NAME<span class="font-icon ico-f ico-f-sorting"></span></th>
-                        <th id="rl">ROLE<span class="font-icon ico-f ico-f-sorting"></span></th>
-                        <th class="table-arrow"></th>
-                    </tr>
-                    
-                </table>
+        </div>
 
-                
+        <div id="filler">
+            <input type="button" value="Cancel" id="btn-employee-cancel" class="upload">
+            <input type="submit" value="Submit" id="btn-employee-add" class="add">
+        </div>
+</script>
 
-                <span id="employee-selection-footer">
-                    <span id="employee-selection-footer-caption">Employee Selected Deselect</span>
-                    <span class="close-icon font-icon ico-f ico-f-move"></span>
-                    <span class="close-icon font-icon ico-f ico-f-empl-perms"></span>
-                    <span class="close-icon font-icon ico-f ico-f-trash"></span>
-                </span>
+<!-- Table Footer template -->
+<script type="x-template/underscore" class="footer-template">
+        <span id='selected-count'></span>
+        <span id="employee-selection-footer-caption">Employee Selected Deselect</span>
+        <span class="close-icon font-icon ico-f ico-f-move"></span>
+        <span class="close-icon font-icon ico-f ico-f-empl-perms"></span>
+        <span class="close-icon font-icon ico-f ico-f-trash"></span>
+    
+</script>
 
-            </div> <!-- end of employee list table -->
-
-            <!-- Employee Details -->
-            <form id="form-employee-details" action="https://jsonplaceholder.typicode.com/users">
-
-                <div id="form-caption">Employee Information</div>
-                <div class="employee-details">
-                    
-                    <span class="big-field">
-                        <div class="field-name">FIRST NAME*</div>
-                        <input type="text" id="first-name" class="input-box">
-                    </span>
-                    <span class="big-field">
-                        <div class="field-name">LAST NAME*</div>
-                        <input type="text" id="last-name" class="input-box">
-                    </span> 
-                </div>
-
-                <div class="employee-details">
-                    <span class="big-field">
-                        <div class="field-name">ROLE*</div>
-                        <input type="text" id="role" class="input-box">
-                    </span>
-
-                    <span class="small-field">
-                        <div class="field-name">POS LOGIN PIN*</div>
-                        <input type="password" id="pos-login-pin" class="input-box">
-                    </span>
-                    <span class="small-field">
-                        <div class="field-name">WAGE*</div>
-                        <input type="text" id="wage" class="input-box">
-                    </span>
-                </div>
-
-                <div class="employee-details">
-                    <span class="big-field">
-                        <div class="field-name">EMAIL ADDRESS*</div>
-                        <input type="email" id="email-address" class="input-box">
-                    </span>
-                    <span class="big-field">
-                        <div class="field-name">PHONE NUMBER*</div>
-                        <input type="tel" id="phone-number" class="input-box">
-                    </span> 
-
-                </div>
-     
-                <div id="filler">
-                    <input type="button" value="Cancel" id="btn-employee-cancel" class="upload">
-                    <input type="submit" value="Submit" id="btn-employee-add" class="add">
-                </div>
-
-            </form>
-
-            <div id="confirmation-box">
-               <span class="default-caption-right-padding">Your Employee list has been updated!</span>
-               <span class="close-icon font-icon ico-f ico-f-cross"></span> 
-            </div>
-
-        </div> <!-- end of main container -->
-        
-    </div> <!-- end of menu container -->
-
-    <!-- Modals -->
+<!-- Modal Window(change role) template -->
+<script type="x-template/underscore" class="modal-template">
     <div id="change-employee-role-modal" class="modal">
         <div class="modal-content">
             <div id='caption-change-role'>
@@ -193,37 +228,25 @@
             <input type="button" value="Apply New Role" id="btn-change-role-apply" class="add">
         </div>
     </div>
-
-<script src="js/modal.js"></script>
-<script src="js/models.js"></script>
-
-<!-- Templates -->
-
-  <script type="text/template" class="employee-entry-template">
-      <td class="select-item"><span class="font-icon ico-f"></span></td>
-      <td class="l-name"><%= last_name %></td>
-      <td class="f-name"><%= first_name %></td>
-      <td class="role"><%= role %></td>
-      <td class="table-arrow"><span class="font-icon ico-f ico-f-angle-right"></span></td>
-  </script>
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-    var selectedCount = 0; /* count selected employees in eployees list */
-
-    $('#employee-list').hide();
-    $('#form-employee-details').hide();
-    $('#confirmation-box').hide();
-
-    /* 
-     * Miscellaneous button onclicks 
-     */
-    // $('.close-icon').click(function() {
-    //     $('#confirmation-box').slideUp(300);
-    // }); /* close icon onclick */ 
-
-});
 </script>
+
+
+
+<script src="js/fw/jquery.js"></script>
+<script src="js/fw/underscore-min.js"></script>
+<script src="js/fw/json2.js"></script>
+<script src="js/fw/backbone.js"></script>
+<script src="js/fw/backbone.marionette.js"></script>
+
+<script src="js/models/employees-model.js"></script>
+<script src="js/views/footer-view.js"></script>
+<script src="js/views/modal-view.js"></script>
+<script src="js/views/details-view.js"></script>
+<script src="js/views/employees-view.js"></script>
+<script src="js/views/side-view.js"></script>
+<script src="js/views/main-view.js"></script>
+<script src="js/views/layout-view.js"></script>
+<script src="js/views/app-start.js"></script>
+
 </body>
 </html>

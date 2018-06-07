@@ -1,0 +1,9 @@
+{
+    "watchFolder": "public/less",   
+    "outputFolder": "public/css",
+    "mainFile": "styles-compiled.less",   
+    "sourceMap": false,
+	"minified": false,
+	"runOnce": false,
+	"enableJs": true
+}
