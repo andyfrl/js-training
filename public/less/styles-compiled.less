@@ -22,13 +22,14 @@
 }
 
 
-body, html, ul {
+body, html, ul , #root {
     height: 100%;
 }
 
 header {
     background-color: @header-background-color;
-    height:50px;
+    // height:50px;
+    flex: 1;
 }
 
 ul {
@@ -66,14 +67,19 @@ a {
     }
 }
 
+#container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Main Container */
 .menu-container {
-    height: 899px;
+    flex: 17;
+
     font-family: @font-family;
     color: @menu-container-color;
     display: flex;
-    align-items: stretch;
-    justify-content: center;
 }
 
 
@@ -84,10 +90,10 @@ a {
  */
 .side-container {
     .flex-column;
-    flex-basis: 13.7%;
+    flex-basis: 14%;
     background:@side-container-background-color;
     border:1px solid @side-container-border-color;
-    
+
     /* Icons for menu items */
     & .ico-f {
         margin-right: 15px;
@@ -119,14 +125,14 @@ a {
         &:hover {
             background: @black-ish;
             color:white;
-            cursor:pointer; 
+            cursor:pointer;
         }
     }
-    /* 
+    /*
      * Child classes for side menu
      */
     .establishment {
-        
+
         .flex-column;
 
         flex-shrink: 0;
@@ -136,7 +142,7 @@ a {
         font-size: 13px;
         background: @side-container-lighter-background-color;
         border: 1px solid @side-container-border-color;
-        
+
         padding-left: 22px;
         border-right: none;
         border-top: none;
@@ -145,7 +151,7 @@ a {
     & #establishment-place {
         font-size: 16px;
         color: @side-container-bright-blue-color;
-        margin-top: 5px; 
+        margin-top: 5px;
     }
 
     & .dashboard {
@@ -186,65 +192,17 @@ a {
 }
 
 /*
- * 
- * Main container props 
+ *
+ * Main container props
  *
  */
 .main-container {
     .flex-column;
-    flex-basis: 100%;
+    flex-basis: 86%;
 
     & .ico-f {
         margin-right: 5px;
         margin-left: 5px;
-    }
-
-    & .main-1 {
-        display: flex;
-        align-items: center;
-
-        height:60px;
-
-        border:1px solid @side-container-border-color;
-        border-left: none;
-
-        & .main-1-controls-employees {
-            flex:10;
-
-            margin-left: 20px;
-
-            font-size: 20px;
-            color: @main-controls-employees-color;
-        }
-
-        & .main-1-controls-employee-list {
-            flex:0.7;
-
-            font-size: 14px;
-            color: @main-controls-employees-color;
-
-            padding-bottom: 17px;
-            padding-top: 22px;
-
-            box-sizing: border-box;
-            border-bottom: 3px solid currentColor;
-            white-space: nowrap;
-        }
-
-        & .main-1-controls-roles {
-            flex:0.4;
-
-            margin-left: 35px;
-
-            font-size: 14px;
-            color: @side-container-bright-blue-color;
-        }
-
-        & .ico-f-magnifier {
-            font-size: 17px;
-            color: @side-container-bright-blue-color;
-            font-weight: bolder;
-        }
     }
 
     .main-2 {
@@ -265,7 +223,7 @@ a {
 
             font-size: 45px;
             color: @main-controls-caption-color;
-            font-weight: lighter;  
+            font-weight: lighter;
         }
 
         & .main-2-controls {
@@ -277,9 +235,58 @@ a {
             color: @side-container-bright-blue-color;
         }
 
-        
+
     }
 
+}
+
+.main-1 {
+    display: flex;
+    align-items: center;
+
+    height:60px;
+
+    border:1px solid @side-container-border-color;
+    border-left: none;
+    border-right: none;
+
+    & .main-1-controls-employees {
+        flex:10;
+
+        margin-left: 20px;
+
+        font-size: 20px;
+        color: @main-controls-employees-color;
+    }
+
+    & .main-1-controls-employee-list {
+        flex:0.7;
+
+        font-size: 14px;
+        color: @main-controls-employees-color;
+
+        padding-bottom: 17px;
+        padding-top: 22px;
+
+        box-sizing: border-box;
+        border-bottom: 3px solid currentColor;
+        white-space: nowrap;
+    }
+
+    & .main-1-controls-roles {
+        flex:0.4;
+
+        margin-left: 35px;
+
+        font-size: 14px;
+        color: @side-container-bright-blue-color;
+    }
+
+    & .ico-f-magnifier {
+        font-size: 17px;
+        color: @side-container-bright-blue-color;
+        font-weight: bolder;
+    }
 }
 
 .upload {
@@ -305,111 +312,134 @@ a {
 }
 
 /*
- * 
+ *
  * Employee list
- * 
+ *
  */
 #employee-list {
+
+    flex-basis: 86%;
+
     display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    white-space: nowrap;
 
-    & #table-caption {
-        margin: 25px;
+    > #emp-list-controls {
+        display: flex;
+
+        margin-top: 25px;
+
+        > #table-caption {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        > #control-btns {
+            margin-left: auto;
+
+            > .del-employee, > .add-employee {
+                margin-right: 10px;
+            }
+        }
+
     }
 
-    & #emp-table {
-        flex-grow: 10;
-        margin: auto;
+    > #emp-table {
+        margin: 15px;
+
+        & #nav-bar {
+            border:1px solid @side-container-border-color;
+            border-left: none;
+            border-right:none;
+
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+
+            font-size: 10px;
+            cursor:pointer;
+        }
+
+        & tr {
+            border:1px solid @side-container-border-color;
+            border-left: none;
+            border-right:none;
+            border-top:none;
+
+            height: 40px;
+            line-height: 40px;
+        }
+
+        & .table-arrow {
+            width:100%;
+        }
+
+        & .ico-f-angle-right {
+            float: right;
+        }
+
+        & .ico-f-radio, .ico-f-ok {
+            font-size: 12px;
+        }
+
+        & .ico-f-sorting {
+            margin-left: 5px;
+        }
+
+        & .ico-f-dropdown {
+            font-size: 7px;
+            margin-left: 5px;
+        }
+
     }
 
-    & #emp-list-controls {
-        margin-right: 25px;
-    }
+    & #employee-selection-footer {
+        width: 100%;
+        flex-basis: 7%;
 
-    & table {
-        width:97%;
-        margin-left: 25px;
-    }
+        margin-top: auto;
+        align-self: center;
+        overflow: hidden;
+        font-size: 13px;
 
-    & th, td {
-        height: 40px;
-        text-align: left;
         border:1px solid @side-container-border-color;
         border-left: none;
         border-right:none;
-        padding-top: 10px;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
+        border-bottom: :none;
 
-    & th {
-        font-size: 10px;
-        padding-top: 14px;
-        cursor:pointer;
-    }
+        > .close-icon {
+            margin-left: 25px;
+            margin-top: 15px;
+            font-size: 20px;
+            color: @header-background-color;
+            cursor: pointer;
+        }
 
-    & td {
-        border-top:none;
-    }
+        > #selected-count, > #selected-footer-caption, > #employee-deselect {
+            margin-left: 25px;
+        }
 
-    & .select-item, .select-all {
-        flex-basis: 6%;
-        box-sizing: border-box;
-        cursor:pointer;
-    }
-
-    & .table-arrow {
-        width:1000px;
-    }
-
-    & .ico-f-angle-right {
-        float: right;
-    }
-
-    & .ico-f-radio {
-        font-size: 14px;
-    }
-
-    & .ico-f-ok {
-        font-size: 16px;
+        > #employee-deselect {
+            color: @header-background-color;
+            cursor: pointer;
+        }
     }
 }
 
-#employee-selection-footer {
-    flex:10;
-    height:50px;
-    border:1px solid @side-container-border-color;
-    font-size: 16px;
-    line-height: 50px;
-
-    border-left: none;
-    border-bottom: none;
-    border-right: none;
-
-    align-self: flex-end;
-    align-content: center;
-    white-space: nowrap;
-    margin:auto;
-
-    & .ico-f-move {
-        cursor: pointer;
-    }
-}
-
-#employee-selection-footer-caption {
-    margin-left: 20px;
-    margin-right: 400px;
-
+.highlighted {
+    color: @header-background-color;
 }
 
 
-/* 
+/*
  *
- * Employee Details 
+ * Employee Details
  *
  */
+#form-employee-details {
+    flex-basis: 86%;
+}
+
 #form-caption {
     margin: 13px 0px 18px 18px;
 }
@@ -483,25 +513,25 @@ a {
     & #btn-employee-add {
         float:right;
         margin-right: 40px;
-        margin-top:34em;
+        margin-top:535px;
 
     }
 
     & #btn-employee-cancel {
         float: left;
         margin-left: 40px;
-        margin-top:34em;
+        margin-top:535px;
     }
 }
 
 
-/* 
+/*
  *
  * Modals
  *
  */
 .modal {
-    display: block;
+
     font-family: @font-family;
     color:#527b99;
     position:fixed;
@@ -509,7 +539,7 @@ a {
     left:0; top:0;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color:rgba(0,0,0,0.4);
 
     animation-name:modalopen;
@@ -517,11 +547,14 @@ a {
 
 
     & .modal-content {
+        display: flex;
+        flex-direction: column;
+
         background-color: white;
-        margin: 10% auto;
-        
-        width:35%;
-        height: 29%;
+        margin: 15% 30% 30% 30%;
+
+        // width:35%;
+        // height: 29%;
         box-shadow: 0 5px 8px 0 rgba(0,0,0, 0.2), 0 7px 20px 0 rgba(0,0,0, 0.17);
     }
 
@@ -552,6 +585,7 @@ a {
 
     & #btn-controls-owner, #btn-controls-employee {
         padding: 10px;
+        cursor: pointer;
     }
 
     & .ico-f-radio, .ico-f-radio-checked {
@@ -559,20 +593,27 @@ a {
          font-size: 14px;
     }
 
+    & #controls-modal-menu {
+
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
     & #btn-change-role-cancel {
         float:left;
-        width:200px;
+        width: 40%;
         cursor: pointer;
-        margin-left: 25px;
-        margin-top: 20px;
+        margin-left: 10px;
     }
 
     & #btn-change-role-apply {
         float:right;
-        width:200px;
+        width: 40%;
         cursor: pointer;
-        margin-right: 25px;
-        margin-top: 20px;
+        word-wrap: break-word;
+        white-space: normal;
+        margin-right: 10px;
+
     }
 
 }
@@ -582,7 +623,7 @@ a {
     to{opacity:1}
 }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -596,8 +637,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 /*table,*/ caption, tbody, tfoot, thead, /*tr, th, td,*/
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -608,7 +649,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }

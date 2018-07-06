@@ -42,7 +42,7 @@ app.use(expressValidator({
         return {
             param : formParam,
             msg   : msg,
-            value : value 
+            value : value
         };
     }
 }));
@@ -67,7 +67,7 @@ app.get('/employees', function(req, res) {
 });
 
 app.post('/add_employee', function(req, res) {
-    
+
     req.checkBody('first_name', 'First Name is Required').notEmpty();
     req.checkBody('last_name', 'Last Name is Required').notEmpty();
     req.checkBody('role', 'Role is Required').notEmpty();
@@ -79,7 +79,7 @@ app.post('/add_employee', function(req, res) {
     if (errors) {
         console.log(errors);
     } else {
-        
+
         var newUser = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -113,11 +113,7 @@ app.put('/employees/update/:id', (req, res, next) => {
     db.users.update(
         {_id: ObjectId(req.params.id)},
         {
-            $set: {
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                role: req.body.role,
-            }
+            $set: req.body
         }, (err, result) => {
             res.header('Content-Type', 'text/plain');
             if(err) {
@@ -126,11 +122,9 @@ app.put('/employees/update/:id', (req, res, next) => {
                 console.log(result);
                 res.send("Update SUCCESS");
             }
-        });
-
-     
+    });
 });
 
-app.listen(3000, function() {
-    console.log('Server Started on port 3000');
+app.listen(3001, function() {
+    console.log('Server Started on port 3001');
 });
