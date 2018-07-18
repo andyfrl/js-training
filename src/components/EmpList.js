@@ -4,8 +4,9 @@ import { connect } from  'react-redux';
 import { fetchEmps } from '../actions/empActions';
 import { deleteEmp } from '../actions/empActions';
 import { toggleVisibility } from '../actions/menuActions';
-import MenuHeading from './MenuHeading';
+import {MenuHeadingContainer} from './MenuHeading';
 import {ListFooterContainer} from './ListFooter';
+import {PopUpMenuContainer} from './PopUpMenu';
 
 
 class EmpList extends Component {
@@ -35,10 +36,11 @@ class EmpList extends Component {
     render() {
         return (
             <div id="employee-list">
-                <MenuHeading />
+                <MenuHeadingContainer />
                 <ListControls onClickDel={this.onClickDel}
                               onClickAdd={this.onClickAdd}/>
                 <EmpTableContainer employees={this.props.emps} />
+                {this.props.menu.popup_menu && <PopUpMenuContainer />}
                 <ListFooterContainer />
             </div>
         )

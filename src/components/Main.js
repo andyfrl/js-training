@@ -1,9 +1,9 @@
 import React from 'react';
-import MenuHeading from './MenuHeading';
+import {MenuHeadingContainer} from './MenuHeading';
 
 const Main = () => (
     <div className="main-container">
-        <MenuHeading />
+        <MenuHeadingContainer />
 
         <div className="main-2">
             <div id="main-caption">

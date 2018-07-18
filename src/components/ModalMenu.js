@@ -40,7 +40,7 @@ class ModalMenu extends Component {
             empsSelected.forEach(el => {
                 this.props.updateEmp(el._id, {role: this.state.current_role});
             });
-            this.props.toggleVisibility({modal_menu: false, employees_menu: true});
+            this.props.toggleVisibility({modal_menu: false, employees_menu: true, popup_menu: true});
         } else {
             alert('Please choose the role');
         }

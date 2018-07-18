@@ -4,7 +4,9 @@ const initialState = {
     employees_menu: false,
     employee_details: false,
     main_menu: true,
-    modal_menu: false
+    modal_menu: false,
+    popup_menu: false,
+    role_permissions_menu: false
 }
 
 export default function(state = initialState, action) {
@@ -18,7 +20,9 @@ export default function(state = initialState, action) {
                 employees_menu: action.visibleMenus.employees_menu,
                 employee_details: action.visibleMenus.employee_details,
                 main_menu: action.visibleMenus.main_menu,
-                modal_menu: action.visibleMenus.modal_menu
+                modal_menu: action.visibleMenus.modal_menu,
+                popup_menu: action.visibleMenus.popup_menu,
+                role_permissions_menu: action.visibleMenus.role_permissions_menu
             };
         default:
             return state;

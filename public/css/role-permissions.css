@@ -1,0 +1,49 @@
+#role-permissions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+}
+#role-permissions > #role-permissions-table-heading {
+  font-size: 18px;
+  margin: 20px;
+}
+#role-permissions > table {
+  margin: 15px;
+}
+#role-permissions > table tr > td:nth-of-type(n+2) {
+  text-align: center;
+}
+#role-permissions .ico-f-info {
+  margin-left: 10px;
+}
+#role-permissions th,
+#role-permissions td {
+  border: 1px solid #d4eaf1;
+  height: 25px;
+  line-height: 25px;
+}
+#role-permissions #empty-cell {
+  border-left: none;
+  border-top: none;
+}
+#role-permissions .foldable-row {
+  background-color: #f2fafd;
+  font-weight: bold;
+}
+#role-permissions .foldable-row > td > span {
+  margin: 10px;
+  color: #00a1e0;
+  cursor: pointer;
+}
+#role-permissions .regular-row > td:first-child {
+  padding-left: 4%;
+}
+#role-permissions > #control-btns {
+  margin: 15px;
+}
+#role-permissions > #control-btns > .add {
+  float: right;
+  width: 64px;
+}

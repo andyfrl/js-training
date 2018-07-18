@@ -1,0 +1,80 @@
+@font-family: 'Roboto', sans-serif;
+
+@menu-container-color: #527b99;
+@header-background-color: #00a3e0;
+
+@side-container-background-color: #edf9fd;
+@side-container-lighter-background-color: #f8fdfe;
+@side-container-border-color: #d4eaf1;
+@side-container-bright-blue-color: #00a1e0;
+
+@black-ish: #004660;
+@date-time-color: #527b99;
+@main-controls-employees-color: #053b66;
+
+@main-controls-btn-upload-color: #f2fafd;
+@main-controls-caption-color: #9bb1c2;
+
+@grey-misc-buttons-color: #8aabc0;
+
+#role-permissions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+
+    font-size: 12px;
+
+    > #role-permissions-table-heading {
+        font-size: 18px;
+        margin: 20px;
+    }
+
+    > table {
+
+        margin: 15px;
+        & tr > td:nth-of-type(n+2) {
+            text-align: center;
+        }
+    }
+
+    & .ico-f-info {
+        margin-left: 10px;
+    }
+
+    & th, & td {
+        border:1px solid @side-container-border-color;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    & #empty-cell {
+        border-left: none;
+        border-top: none;
+    }
+
+    & .foldable-row {
+        background-color: @main-controls-btn-upload-color;
+        font-weight: bold;
+        > td > span {
+            margin: 10px;
+            color: @side-container-bright-blue-color;
+            cursor: pointer;
+        }
+    }
+
+    & .regular-row {
+        > td:first-child {
+            padding-left: 4%;
+        }
+    }
+
+    > #control-btns {
+        margin: 15px;
+
+        > .add {
+            float: right;
+            width: 64px;
+        }
+    }
+}

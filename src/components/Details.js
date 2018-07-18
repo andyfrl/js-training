@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createEmp } from '../actions/empActions';
 import { toggleVisibility } from '../actions/menuActions';
-import MenuHeading from './MenuHeading';
+import { MenuHeadingContainer } from './MenuHeading';
 
 
 class Details extends Component {
@@ -45,13 +45,13 @@ class Details extends Component {
         }
 
         this.props.createEmp(entry);
-        this.props.showEmps({employee_details: false, employees_menu: true})
+        this.props.showEmps({employee_details: false, employees_menu: true, popup_menu: true})
     }
 
     render() {
         return (
             <form id='form-employee-details' onSubmit={this.onSubmit}>
-                <MenuHeading />
+                <MenuHeadingContainer />
                 <div id="form-caption">Employee Information</div>
                 <div className="employee-details">
 

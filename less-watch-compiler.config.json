@@ -1,7 +1,7 @@
 {
-    "watchFolder": "public/less",   
+    "watchFolder": "public/less",
     "outputFolder": "public/css",
-    "mainFile": "styles-compiled.less",   
+    "mainFile": "role-permissions.less",   
     "sourceMap": false,
 	"minified": false,
 	"runOnce": false,
